@@ -11,7 +11,7 @@ class AuthController extends Controller
      * @author Jesús Moris (jesus[at]soluciontotal.cl)
      * @version 2019-05-03
      */
-    public function login(Request $request){
+    public function conectar(Request $request){
         $input = $request->only(['email', 'password']);
 
         $validator = Validator::make($request->all(), [
