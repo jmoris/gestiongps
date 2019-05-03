@@ -13,10 +13,18 @@ class AuthController extends Controller
      */
     public function login(Request $request){
         $input = $request->only(['email', 'password']);
-        $validacion = $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
-        return $request->all();
+
+        if ($validator->fails()) {
+            return redirect('/login')
+            ->withErrors($validator)
+            ->withInput();
+        }
+        
+        return view('home');
     }
 }
