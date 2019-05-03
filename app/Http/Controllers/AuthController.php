@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             return redirect('/login')
-            ->withErrors($validator)
+            ->withErrors(['error' => 'Todos los campos son obligatorios.'])
             ->withInput();
         }
 
@@ -38,7 +38,9 @@ class AuthController extends Controller
         if($http_status == 200){
             return redirect('/home');
         }else if($http_status == 401){
-            return redirect('/login');
+            return redirect('/login')
+            ->withErrors(['error' => 'Email/contraseña incorrectos.'])
+            ->withInput();
         }else if($http_status == 500){
             return 'Hubo un error en el servidor...';
         }
