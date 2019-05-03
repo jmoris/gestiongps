@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -25,6 +26,6 @@ class AuthController extends Controller
             ->withInput();
         }
         
-        return view('home');
+        return view('welcome');
     }
 }
