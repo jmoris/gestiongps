@@ -25,7 +25,23 @@ class AuthController extends Controller
             ->withErrors($validator)
             ->withInput();
         }
-        
-        return view('welcome');
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/session');
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "email=".$request['email']."&password=".$request['password']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close ($ch);
+
+        if($http_status == 200){
+            return redirect('/home');
+        }else if($http_status == 401){
+            return redirect('/login');
+        }else if($http_status == 500){
+            return 'Hubo un error en el servidor...';
+        }
+        return $http_status;
     }
 }
