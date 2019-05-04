@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand" href="#">
-        <img src="logo.PNG" alt="logo" style="width:200px;">
+        <img src="/logo.PNG" alt="logo" style="width:200px;">
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
