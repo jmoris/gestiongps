@@ -19,17 +19,23 @@ body{
     max-width: 320px;
 }
 #email{
+    position: relative;
     margin-bottom: -1px;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
 }
 #password{
+    position: relative !important;
+    margin-bottom: 10px;
     border-top-left-radius: 0%;
     border-top-right-radius: 0%;
 }
 .form-login .form-check{
     font-weight: 400;
     font-size: 11pt
+}
+.form-login .form-control:focus{
+    z-index: 2;
 }
 #btn-ingresar{
     background-color: blue;
