@@ -21,8 +21,8 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
+            session('error_login', 'Todos los campos son obligatorios.');
             return redirect('/login')
-            ->withErrors(['error' => 'Todos los campos son obligatorios.'])
             ->withInput();
         }
 
