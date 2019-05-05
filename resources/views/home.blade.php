@@ -4,9 +4,10 @@
 
 @section('contenido')
 <div class="card">
-    <h5 class="card-header">Pagina de inicio</h5>
+    <h5 class="card-header">Inicio</h5>
     <div class="card-body">
-        <p class="card-text">En esta plataforma podras gestionar los contribuyentes asociados a tu cuenta, crear tokens de acceso para cada uno y revocarlos.</p>
+      <h1>SolucionTotal</h1>
+        <p class="card-text">Solución Total es un empresa ubicada en la comuna de Teno, Séptima región de Chile, dicha empresa fue creada con el objetivo de ofrecer al público un sistema de facturación y un sistema de control de flotas al alcance de cualquier persona. </p>
     </div>
 </div>
 @stop
