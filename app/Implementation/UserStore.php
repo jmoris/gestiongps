@@ -5,10 +5,8 @@ namespace App\Implementation;
 class UserStore {
 
 	protected static $instance;
-	private $email;
-	private $password;
-	private $user;
-	private $connection;
+
+	
 
     public static function getInstance()
     {
@@ -21,30 +19,30 @@ class UserStore {
 
     public function store($email, $password, $user)
     {
-    	$this->email = $email;
-    	$this->password = $email;
-    	$this->user = $user;
-    	$this->connection = true;
+    	\Session::put('email', $email);
+    	\Session::put('password', $password);
+    	\Session::put('user', $user);
+    	\Session::put('connected', true);
     }
 
     public function isConnected()
     {
-    	return $this->connection;
+    	return \Session::get('connected');
     }
 
     public function logOut()
     {
-    	$this->email = null;
-    	$this->password = null;
-    	$this->user = null;
-    	$this->connection= false;
+    	\Session::forget('email');
+    	\Session::forget('password');
+    	\Session::forget('user');
+    	\Session::put('connected', false);
     }
 
     /**
      * Protected constructor to prevent creating a new instance of the
      * singleton via the `new` operator.
      */
-    protected __construct()
+    protected function __construct()
     {
         // your constructor logic here.
     }
