@@ -21,7 +21,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            Session::put('error_login', 'Todos los campos son obligatorios.');
+            \Session::put('error_login', 'Todos los campos son obligatorios.');
             return redirect('/login')
             ->withInput();
         }
@@ -38,7 +38,7 @@ class AuthController extends Controller
         if($http_status == 200){
             return redirect('/home');
         }else if($http_status == 401){
-            Session::put('error_login', 'Email/clave incorrectos.');
+            \Session::put('error_login', 'Email/clave incorrectos.');
             return redirect('/login')
             ->withInput();
         }else if($http_status == 500){

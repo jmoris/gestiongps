@@ -28,9 +28,8 @@
                     Recordar
                   </label>
                 </div>
-                @if(session('errors')->has('error'))
-                  {{ session('errors')->first('error') }}       
-                @endif      
+                {{ Session::has('error_login') }}
+                 
                 <button id="btn-ingresar" type="submit" class="btn btn-block btn-primary">Ingresar</button>
             </form>
         </div>
