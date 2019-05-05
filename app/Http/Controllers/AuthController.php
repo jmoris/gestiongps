@@ -38,8 +38,8 @@ class AuthController extends Controller
         if($http_status == 200){
             return redirect('/home');
         }else if($http_status == 401){
+            session('error_login', 'Email/clave incorrectos.');
             return redirect('/login')
-            ->withErrors(['error' => 'Email/contraseña incorrectos.'])
             ->withInput();
         }else if($http_status == 500){
             return 'Hubo un error en el servidor...';
