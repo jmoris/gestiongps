@@ -15,7 +15,7 @@
     <div class="container">
         <div class="centrado text-center">
             <form class="form-login" action="/login" method="post">
-                <!--h1 class="h3 mb-3 font-weith-normal">SolucionTotal</h1-->
+                @csrf
                 <img class="mb-3" id="logo" src="/logo.png" alt="">
                 <label class="sr-only" for="email">Correo electrónico</label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="Correo electrónico" required >
