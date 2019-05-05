@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::post('/login', 'AuthController@conectar');
 
-Route::get(‘/login’, function(){ return view(‘login’); });
+Route::get('/login', function(){ return view('login'); });
