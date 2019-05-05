@@ -36,6 +36,8 @@ class AuthController extends Controller
         curl_close ($ch);
 
         if($http_status == 200){
+            $user = \App\Implementation\UserStore::getInstance();
+            $user->store($request['email'], $request['password'], json_decode($respuesta));
             return redirect('/home');
         }else if($http_status == 401){
             return redirect('/login')
