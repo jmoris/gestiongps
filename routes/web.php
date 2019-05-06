@@ -24,4 +24,5 @@ Route::post('/login', 'AuthController@login');
 Route::post('/login', 'AuthController@conectar');
 
 Route::get('/login', function(){ return view('login'); });
->>>>>>> inicioSesion
+
+Route::post('/logout', 'AuthController@desconectar');   

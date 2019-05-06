@@ -48,4 +48,10 @@ class AuthController extends Controller
         }
         return $http_status;
     }
+
+    public function desconectar(){
+        $user = \App\Implementation\UserStore::getInstance();
+        $user->logOut();
+        return redirect('/login');
+    }
 }
