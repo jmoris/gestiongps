@@ -14,5 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+<<<<<<< HEAD
+Route::get('/home', function() {
+    return view('home');
+});
 Route::post('/login', 'AuthController@login');
+=======
+
+Route::post('/login', 'AuthController@conectar');
+
+Route::get('/login', function(){ return view('login'); });
+
+Route::post('/logout', 'AuthController@desconectar');   
