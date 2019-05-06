@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home', function() {
     return view('home');
 })->middleware('connected');
+
 Route::post('/login', 'AuthController@conectar');
 
 Route::get('/login', function(){ return view('login'); });
