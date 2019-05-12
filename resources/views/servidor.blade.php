@@ -8,7 +8,8 @@
     <h5 class="card-header">Ajustes del servidor:</h5>
     <div class="espacio-20"></div>
     <div class="col-md-8 offset-md-2">
-    <form action="/servidor" method="put">
+    <form action="/servidor" method="post">
+    @csrf
         <div class="form-group row">
             <div class="col-sm-4">Servidor en modo lectura</div>
             <div class="col-sm-8">

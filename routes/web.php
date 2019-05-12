@@ -18,10 +18,10 @@ Route::get('/home', function() {
     return view('home');
 })->middleware('connected');
 
-Route::get('/servidor', 'ServidorController@guardar')
+Route::get('/servidor', 'ServidorController@obtener')
 ->middleware('connected');
 
-Route::put('/servidor', 'ServidorController@guardar')
+Route::post('/servidor', 'ServidorController@guardar')
 ->middleware('connected');
 
 Route::post('/login', 'AuthController@conectar');
