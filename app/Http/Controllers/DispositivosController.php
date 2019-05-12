@@ -15,7 +15,7 @@ class DispositivosController extends Controller{
 					$respuesta = curl_exec ($ch);
 					curl_close ($ch);
 
-					return view('dispositivos.home', ['dispositivos' => json_decode($respuesta)]);
+					return view('dispositivos.home', ['dis' => json_decode($respuesta)]);
 	}
 
 	public function ingresar(){
