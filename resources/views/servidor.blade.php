@@ -8,12 +8,12 @@
     <h5 class="card-header">Ajustes del servidor:</h5>
     <div class="espacio-20"></div>
     <div class="col-md-8 offset-md-2">
-    <form>
+    <form action="acciones_servidor.blade.php" method="post">
         <div class="form-group row">
             <div class="col-sm-4">Servidor en modo lectura</div>
             <div class="col-sm-8">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_servidor">
                     <label class="form-check-label" for="gridCheck1">
                         Sí
                     </label>
@@ -25,7 +25,7 @@
             <div class="col-sm-4">Dispositivos en modo lectura</div>
             <div class="col-sm-8">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_dispositivos">
                     <label class="form-check-label" for="gridCheck1">
                         Sí
                     </label>
@@ -36,21 +36,21 @@
         <div class="form-group row">
             <label for="latitud" class="col-sm-4 col-form-label">Latitud en el mapa</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="latitud" placeholder="Ej: -33.4726900">
+                <input type="text" class="form-control" name="latitud" placeholder="Ej: -33.4726900">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="longitud" class="col-sm-4 col-form-label">Longitud en el mapa</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="longitud" placeholder="Ej: -70.6472400">
+                <input type="text" class="form-control" name="longitud" placeholder="Ej: -70.6472400">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="zoom" class="col-sm-4 col-form-label">Zoom en el mapa</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control" id="zoom" placeholder="Ej: 100">
+                <input type="number" class="form-control" name="zoom" placeholder="Ej: 100">
             </div>
         </div>
 
