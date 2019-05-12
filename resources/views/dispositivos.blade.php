@@ -7,6 +7,11 @@
         <h5 class="card-header">Lista de Dispositivos</h5>
         <div class="card-body">
             <div class="table-responsive">
+                <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                <input type="text" class="form-control" placeholder="Buscar ">
+                            </div>
+                <p> 
                 <table id="tablaDatos" class="table table-sm table-hover">
                     <thead class="text-left">
                         <tr>
