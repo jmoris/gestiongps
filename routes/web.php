@@ -26,4 +26,4 @@ Route::post('/logout', 'AuthController@desconectar');
 
 Route::get('/usuarios', 'UsuarioController@mostrar');
 
-Route::get('/dispositivos', function() { ∫return view('dispositivos');})
+Route::get('/dispositivos', function() { return view('dispositivos');});
