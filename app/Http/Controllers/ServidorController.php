@@ -22,11 +22,11 @@ class ServidorController extends Controller
     public function guardar(Request $request){
         
         $fields = [
-        '$registration' => $request->check_servidor,
-        '$deviceReadonly' => $request->check_dispositivo,
-        '$latitude' => $request->latitud,
-        '$longitude' => $request->longitud,
-        '$zoom' => $request->zoom
+        'registration' => $request->check_servidor,
+        'deviceReadonly' => $request->check_dispositivo,
+        'latitude' => $request->latitud,
+        'longitude' => $request->longitud,
+        'zoom' => $request->zoom
         ];
 
         $fields_string = http_build_query($fields);

@@ -13,7 +13,7 @@
             <div class="col-sm-4">Servidor en modo lectura</div>
             <div class="col-sm-8">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_servidor">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_servidor" @if($servidor->readonly)checked @endif>
                     <label class="form-check-label" for="gridCheck1">
                         Sí
                     </label>
@@ -25,7 +25,7 @@
             <div class="col-sm-4">Dispositivos en modo lectura</div>
             <div class="col-sm-8">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_dispositivos">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="check_dispositivos" @if($servidor->deviceReadonly)checked @endif>
                     <label class="form-check-label" for="gridCheck1">
                         Sí
                     </label>
