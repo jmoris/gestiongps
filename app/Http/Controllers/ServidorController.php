@@ -24,6 +24,7 @@ class ServidorController extends Controller
         $fields = [
         'readonly' => ($request->check_servidor)?'true':'false',
         'deviceReadonly' => ($request->check_dispositivos)?'true':'false',
+        'registration' => ($request->check_registro)?'true':'false',
         'latitude' => $request->latitud,
         'longitude' => $request->longitud,
         'zoom' => $request->zoom
