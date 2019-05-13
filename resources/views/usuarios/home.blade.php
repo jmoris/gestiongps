@@ -6,6 +6,11 @@
     <div class="card">
         <h5 class="card-header">Lista de Usuarios</h5>
         <div class="card-body">
+                <div class="form-group row mt-3">
+                        <div class="col-sm-12">
+                            <a name="" id="" class="btn btn-primary float-right" href="#" role="button">Nuevo usuario</a>
+                        </div>
+                    </div>
             <div class="table-responsive">
                 <table id="tablaDatos" class="table table-sm table-hover">
                     <thead class="text-left">
