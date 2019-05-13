@@ -31,6 +31,8 @@ class ServidorController extends Controller
                 {
                     $fields = [
                         'readonly' => ($request->check_servidor)?'true':'false',
+                        'mapUrl' => 'https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s=Ga',
+                        'map' => 'custom',
                         'deviceReadonly' => ($request->check_dispositivos)?'true':'false',
                         'registration' => ($request->check_registro)?'true':'false',
                         'latitude' => $request->latitud,
