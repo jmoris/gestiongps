@@ -6,3 +6,36 @@
   width: 100%;
   margin-top: 75px;
 }
+
+.tarjeta {
+  margin-left: 10px;
+  display: inline-block;
+  width: 8vw;
+  border: 1px solid grey;
+  height: 8vw;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  background-color: gainsboro;
+}
+
+.icono {
+  padding-top: 10%;
+  margin: auto;
+  width: 100%;
+}
+.icono img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4vw;
+  height: 4vw;
+}
+.texto {
+  font-size: 1em;
+  font-family: "Arial";
+  font-weight: bold;
+  margin-top: 10%;
+}

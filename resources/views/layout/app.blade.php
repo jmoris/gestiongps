@@ -21,26 +21,24 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
+
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/herramientas.png"/>Ajustes</a>
+          <a class="nav-link" href="/usuarios"><img width="24px" src="/icon/usuarios.png"/>Usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/usuarios.png"/>Usuarios</a>
+          <a class="nav-link" href="/dispositivos"><img width="24px" src="/icon/dispositivos.png"/>Dispositivos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/dispositivos.png"/>Dispositivos</a>
+          <a class="nav-link" href="/choferes"><img width="24px" src="/icon/choferes.png"/>Choferes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/choferes.png"/>Choferes</a>
+          <a class="nav-link" href="/reportes"><img width="24px" src="/icon/reportes.png"/>Reportes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/reportes.png"/>Reportes</a>
+          <a class="nav-link" href="/geocercas"><img width="24px" src="/icon/geocercas.png"/>Geocerca</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/geocercas.png"/>Geocerca</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img width="24px" src="/icon/servidor.png"/>Servidor</a>
+          <a class="nav-link" href="/servidor"><img width="24px" src="/icon/servidor.png"/>Ajustes Servidor</a>
         </li>
       </ul>
       <ul class="navbar-nav px-3">
