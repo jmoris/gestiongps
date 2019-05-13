@@ -20,7 +20,7 @@
     <script>
     $( function() {
       $( "#datepicker" ).datepicker();
-    } );
+    });
     </script>
 
  <!-- Éste script, en teoría, es el que permite que se ejecute el popup modal para agregar users
