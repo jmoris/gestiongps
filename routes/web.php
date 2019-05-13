@@ -27,3 +27,5 @@ Route::post('/logout', 'AuthController@desconectar');
 Route::get('/usuarios', 'UsuarioController@mostrar');
 
 Route::get('/usuarios/agregar-usuario', 'UsuarioController@addUsuarioView');
+
+Route::post('/usuarios/agregar-usuario', 'UsuarioController@addUsuario');

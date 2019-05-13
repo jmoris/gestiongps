@@ -8,7 +8,7 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                        <form action="/usuarios" method="POST">
+                        <form action="/usuarios/agregar-usuario" method="POST">
                             @csrf 
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
