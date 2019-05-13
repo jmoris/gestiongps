@@ -8,7 +8,11 @@
         <div class="card-body">
             <div class="table-responsive">
                 
-              
+                    <div class="form-group row mt-3">
+                            <div class="col-sm-12">
+                                <a name="" id="" class="btn btn-primary float-right" href="/dispositivos/agregar" role="button">Nuevo dispositivo</a>
+                            </div>
+                        </div>
                 <table id="tablaDatos" class="table table-sm table-hover" >
                     <thead class="text-left">
                         <tr>
@@ -38,6 +42,12 @@
                             <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
                                 ver
                             </a>
+                            <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="#">
+                                    modificar
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="#">
+                                        borrar
+                                    </a>
                             </td>
                             </tr>
                         @endforeach
@@ -45,11 +55,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-    <div class="form-group row mt-3">
-        <div class="col-sm-12">
-            <a name="" id="" class="btn btn-primary" href="/dispositivos/agregar" role="button">Nuevo</a>
         </div>
     </div>
 @stop

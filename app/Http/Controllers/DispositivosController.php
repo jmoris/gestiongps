@@ -27,7 +27,7 @@ class DispositivosController extends Controller{
             'contact' => $request->contacto,
             'category' => $request->cateogria
         ];
-        $fields_string = http_build_query($fields);
+        $fields_string = json_encode($fields);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');

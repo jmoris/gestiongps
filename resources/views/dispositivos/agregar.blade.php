@@ -8,7 +8,8 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                <form method="POST" action="/agregar">            
+                <form method="POST" action="/dispositivos">     
+                    @csrf       
                     <div class="form-group row">
                         <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
                         <div class="col-sm-8">
@@ -86,7 +87,6 @@
 
                     
                   
-                </form>
                 </div>
         </div>
     </div>
@@ -95,4 +95,5 @@
             <button type="submit" class="btn btn-primary" >Guardar</button> 
         </div> 
     </div>
+</form>
 @endsection

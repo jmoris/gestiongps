@@ -39,7 +39,7 @@ Route::get('/dispositivos/agregar', function(){
     return view('dispositivos.agregar');
 });
 
-Route::post('/dispositivos/agregar', 'DispositivosController@agregar');
+Route::post('/dispositivos', 'DispositivosController@agregar');
 Route::post('/logout', 'AuthController@desconectar');   
 
 
