@@ -20,17 +20,47 @@ class ServidorController extends Controller
     }
 
     public function guardar(Request $request){
-        
-        $fields = [
-        'readonly' => ($request->check_servidor)?'true':'false',
-        'deviceReadonly' => ($request->check_dispositivos)?'true':'false',
-        'registration' => ($request->check_registro)?'true':'false',
-        'latitude' => $request->latitud,
-        'longitude' => $request->longitud,
-        'zoom' => $request->zoom
-        ];
+
+        $fields= [];
+
+        if((intval($request->latitud) > -91) && (intval($request->latitud) <91))
+        {
+            if((intval($request->longitud) > -181) &&(intval($request->longitud) < 181))
+            {
+                if ($request->zoom > 0)
+                {
+                    $fields = [
+                        'readonly' => ($request->check_servidor)?'true':'false',
+                        'deviceReadonly' => ($request->check_dispositivos)?'true':'false',
+                        'registration' => ($request->check_registro)?'true':'false',
+                        'latitude' => $request->latitud,
+                        'longitude' => $request->longitud,
+                        'zoom' => $request->zoom
+                        ];
+                }
+                else
+                {
+                    return redirect('/servidor')
+                    ->with('error_servidor', 'El zoom debe ser mayor a 0.')
+                    ->withInput(); 
+                }
+            }
+            else
+            {
+                return redirect('/servidor')
+                ->with('error_servidor', 'La latitud debe ser entre -180 y 180.')
+                ->withInput();
+            }
+        }
+        else
+        {
+            return redirect('/servidor')
+            ->with('error_servidor', 'La longitud debe ser entre -90 y 90.')
+            ->withInput();
+        }
 
         $fields_string = json_encode($fields);
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/server');
@@ -40,6 +70,7 @@ class ServidorController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
+        
         return redirect('/servidor');
     }
 }

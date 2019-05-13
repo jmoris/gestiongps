@@ -64,6 +64,11 @@
             <label for="zoom" class="col-sm-4 col-form-label">Zoom en el mapa</label>
             <div class="col-sm-8">
                 <input type="number" class="form-control" name="zoom" placeholder="Ej: 100" value="{{$servidor->zoom}}">
+                @if(session('error_servidor'))
+                <div class='text-danger col-sm-8'>
+                    {{session('error_servidor')}}
+                </div>
+                @endif
             </div>
         </div>
 
