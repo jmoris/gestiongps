@@ -17,6 +17,10 @@ class UsuarioController extends Controller{
                 return view('usuarios.home', ['usuarios' => json_decode($respuesta)]);
   }
 
+  public function addUsuarioView(){
+    return view('usuarios.agregar-usuario');
+  }
+
   public function addUsuario(Request $request){
     $this->validate($request,[
       'nombre' => 'required',
