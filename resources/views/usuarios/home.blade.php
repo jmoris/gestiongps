@@ -48,7 +48,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ action('UsuarioController@add') }}" method="POST">
+                    <form action=/usuarios method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
                                 <label for="nombre">Nombre</label>
@@ -71,13 +71,13 @@
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="permLect">
+                            <input class="form-check-input" type="checkbox" name="permLect" id="permLect">
                             <label class="form-check-label" for="permLect">
                                 Permisos de lectura
                             </label>
                             </div>
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="editDisp">
+                            <input class="form-check-input" type="checkbox" name="editDisp" id="editDisp">
                             <label class="form-check-label" for="editdisp">
                                 Permisos para editar datos de dispositivos
                             </label>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary">Crear</button>
+                  <button type="submit" class="btn btn-primary">Crear</button>
                 </div>
               </div>
             </div>
