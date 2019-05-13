@@ -29,8 +29,8 @@ Route::get('/usuarios', 'UsuarioController@mostrar');
 
 Route::get('/dispositivos' , 'DispositivosController@mostrar');
 
-Route::get('/dispositivos/ingresar', function(){
-    return view('dispositivos.ingresar');
+Route::get('/dispositivos/agregar', function(){
+    return view('dispositivos.agregar');
 });
 
-Route::post('/dispositivos/ingresar', 'DispositivosController@ingresar');
+Route::post('/dispositivos/agregar', 'DispositivosController@agregar');
