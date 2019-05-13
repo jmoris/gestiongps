@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,17 @@ Route::post('/login', 'AuthController@conectar');
 
 Route::get('/login', function(){ return view('login'); });
 
+Route::post('/logout', 'AuthController@desconectar');
+
+Route::get('/usuarios', 'UsuarioController@mostrar');
+
+Route::get('/dispositivos' , 'DispositivosController@mostrar');
+
+Route::get('/dispositivos/agregar', function(){
+    return view('dispositivos.agregar');
+});
+
+Route::post('/dispositivos/agregar', 'DispositivosController@agregar');
 Route::post('/logout', 'AuthController@desconectar');   
 
 
