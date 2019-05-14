@@ -17,11 +17,7 @@ class UsuarioController extends Controller{
                 return view('usuarios.home', ['usuarios' => json_decode($respuesta)]);
   }
 
-  public function addUsuarioView(){
-    return view('usuarios.agregar-usuario');
-  }
-
-  public function addUsuario(Request $request){
+  public function agregar(Request $request){
     $this->validate($request,[
       'nombre' => 'required',
       'email' => 'required',
@@ -35,20 +31,51 @@ class UsuarioController extends Controller{
       'name' => $request->nombre,
       'password' => $request->pass,
       'email' => $request->email,
-      'expirationTime' => $request->fechaExp
+      'expirationTime' => $request->fechaexp
       ];
 
       $fields_string = json_encode($fields);
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/server');
-      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
       curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
       curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $respuesta = curl_exec ($ch);
       curl_close ($ch);
+     
+     // return $respuesta;
+    return redirect('/usuarios');
+  }
 
-      return redirect('/usuarios')->with('success', 'datos guardados!');
+   public function modificar(Request $request, $id){
+    $fields = [
+      'deviceReadonly' => ($request->editDisp)?'true':'false',
+      'readonly' => ($request->permLect)?'true':'false',
+      'name' => $request->nombre,
+      'password' => $request->pass,
+      'email' => $request->email,
+      'expirationTime' => $request->fechaexp
+      ];
+    $fields_string = http_build_query($fields);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users/'.$id);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+    return redirect('/usuarios');
+} 
+
+  public function addUsuarioView(){
+    return view('usuarios.agregar-usuario');
+  }
+
+  public function vistaEditarUsuario(){
+    return view('usuarios.editar-usuario');
   }
 }

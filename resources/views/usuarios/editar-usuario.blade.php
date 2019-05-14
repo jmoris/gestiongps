@@ -1,10 +1,10 @@
 @extends('layout.app')
 
-@section('titulo', 'Ingresar usuario')
+@section('titulo', 'Editar usuario')
 
 @section('contenido')
     <div class="card">
-        <h5 class="card-header">Agregar Ususario</h5>
+        <h5 class="card-header">Editar datos usuario</h5>
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
@@ -17,7 +17,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" autocomplete="off" class="form-control" name="email" id="inputEmail" placeholder="Email">
+                                    <input type="email"  class="form-control" name="email" id="inputEmail" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Constraseña</label>

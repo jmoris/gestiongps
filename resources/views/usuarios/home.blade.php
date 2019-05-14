@@ -27,8 +27,8 @@
                     <td>{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">ver</a>
-                        <a class="btn btn-sm btn-outline-danger" title="Ver información" href="#">borrar</a>
-                        <a class="btn btn-sm btn-outline-secondary" title="Ver información" href="#">modificar</a>
+                        <a class="btn btn-sm btn-outline-danger" title="eliminar" href="#">borrar</a>
+                        <a class="btn btn-sm btn-outline-secondary" title="modificar" href="/usuarios/editar-usuario">modificar</a>
                     </td>
                 </tr>
                 @endforeach
