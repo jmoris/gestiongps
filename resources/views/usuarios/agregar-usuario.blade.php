@@ -17,11 +17,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" autocomplete="off" class="form-control" name="email" id="inputEmail" placeholder="Email">
+                                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Constraseña</label>
-                                    <input type="password" autocomplete="off" class="form-control" name="pass" id="inputPassword" placeholder="Contraseña">
+                                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Contraseña">
                                 </div>
                             </div>
                             <div class="form-row">

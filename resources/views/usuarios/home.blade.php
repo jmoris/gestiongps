@@ -28,7 +28,7 @@
                     <td>
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">ver</a>
                         <a class="btn btn-sm btn-outline-danger" title="eliminar" href="#">borrar</a>
-                        <a class="btn btn-sm btn-outline-secondary" title="modificar" href="/usuarios/editar-usuario">modificar</a>
+                    <a class="btn btn-sm btn-outline-secondary" title="modificar" href="/usuarios/editar-usuario/{{$usuario->id}}">modificar</a>
                     </td>
                 </tr>
                 @endforeach

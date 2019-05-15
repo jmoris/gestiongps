@@ -8,36 +8,36 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                        <form action="/usuarios/agregar-usuario" method="POST">
+                        <form action="/usuarios/editar-usuario/{{$usuario->id}}" method="POST">
                             @csrf 
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre usuario">
+                                    <input type="text" value="{{$usuario->name}}" class="form-control" name="nombre" id="nombre" placeholder="Nombre usuario">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email"  class="form-control" name="email" id="inputEmail" placeholder="Email">
+                                <input type="email"  value="{{$usuario->email}}" class="form-control" name="email" id="inputEmail" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Constraseña</label>
-                                    <input type="password" autocomplete="off" class="form-control" name="pass" id="inputPassword" placeholder="Contraseña">
+                                <input type="password" value="{{$usuario->password}}" autocomplete="off" class="form-control" name="pass" id="inputPassword" placeholder="Contraseña">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <p>Fecha de expiración: <input type="text" name="fechaexp" id = "datepicker"></p>
+                                <p>Fecha de expiración: <input type="text" value="{{$usuario->expirationTime}}" name="fechaexp" id = "datepicker"></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permLect" id="permLect">
+                                <input class="form-check-input" value="{{$usuario->readonly}}" type="checkbox" name="permLect" id="permLect">
                                 <label class="form-check-label" for="permLect">
                                     Permisos de lectura
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="editDisp" id="editDisp">
+                                <input class="form-check-input" value="{{$usuario->deviceReadonly}}"  type="checkbox" name="editDisp" id="editDisp">
                                 <label class="form-check-label" for="editdisp">
                                     Permisos para editar datos de dispositivos
                                 </label>

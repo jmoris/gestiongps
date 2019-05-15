@@ -68,14 +68,33 @@ class UsuarioController extends Controller{
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $respuesta = curl_exec ($ch);
     curl_close ($ch);
-    return redirect('/usuarios');
-} 
-
+    //return redirect('/usuarios');
+    return $respuesta;
+  } 
+  
   public function addUsuarioView(){
     return view('usuarios.agregar-usuario');
   }
 
-  public function vistaEditarUsuario(){
-    return view('usuarios.editar-usuario');
+  public function vistaEditarUsuario($id){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $usuarios = json_decode($respuesta);
+    $target;
+
+    foreach ($usuarios as $usuario){
+      if($usuario->id == $id){
+        $target = $usuario;
+        break;
+      }
+    }
+
+    return view('usuarios.editar-usuario', ['usuario' => $target]);
   }
 }
