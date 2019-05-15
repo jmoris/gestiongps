@@ -50,15 +50,32 @@ class UsuarioController extends Controller{
   }
 
    public function modificar(Request $request, $id){
-    $fields = [
-      'deviceReadonly' => ($request->editDisp)?'true':'false',
-      'readonly' => ($request->permLect)?'true':'false',
-      'name' => $request->nombre,
-      'password' => $request->pass,
-      'email' => $request->email,
-      'expirationTime' => $request->fechaexp
-      ];
-    $fields_string = http_build_query($fields);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $usuarios = json_decode($respuesta);
+    $target;
+
+    foreach ($usuarios as $usuario){
+      if($usuario->id == $id){
+        $target = $usuario;
+        break;
+      }
+    }
+
+    $target->deviceReadonly = ($request->editDisp)?'true':'false';
+    $target->readonly = ($request->permLect)?'true':'false';
+    $target->name = $request->nombre;
+    $target->password = $request->pass;
+    $target->email = $request->email;
+    $target-> expirationTime = $request->fechaexp;
+ 
+    $fields_string = json_encode($target);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users/'.$id);
@@ -68,8 +85,8 @@ class UsuarioController extends Controller{
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $respuesta = curl_exec ($ch);
     curl_close ($ch);
-    //return redirect('/usuarios');
-    return $respuesta;
+    return redirect('/usuarios');
+    //return $respuesta;
   } 
   
   public function addUsuarioView(){
@@ -95,6 +112,6 @@ class UsuarioController extends Controller{
       }
     }
 
-    return view('usuarios.editar-usuario', ['usuario' => $target]);
+    return view('usuarios.editar-usuario', ['usuario' => (object)$target]);
   }
 }

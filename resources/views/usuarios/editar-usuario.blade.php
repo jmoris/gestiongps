@@ -31,13 +31,13 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
-                                <input class="form-check-input" value="{{$usuario->readonly}}" type="checkbox" name="permLect" id="permLect">
-                                <label class="form-check-label" for="permLect">
-                                    Permisos de lectura
-                                </label>
+                                    <input class="form-check-input" type="checkbox" @if($usuario->readonly)checked @endif name="permLect" id="permLect">
+                                    <label class="form-check-label" for="permLect">
+                                        Permisos de lectura
+                                    </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" value="{{$usuario->deviceReadonly}}"  type="checkbox" name="editDisp" id="editDisp">
+                                <input class="form-check-input" type="checkbox" @if($usuario->deviceReadonly)checked @endif  name="editDisp" id="editDisp">
                                 <label class="form-check-label" for="editdisp">
                                     Permisos para editar datos de dispositivos
                                 </label>
