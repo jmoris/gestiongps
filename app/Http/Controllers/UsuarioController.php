@@ -87,10 +87,17 @@ class UsuarioController extends Controller{
     curl_close ($ch);
     return redirect('/usuarios');
     //return $respuesta;
-  } 
+  }
   
-  public function addUsuarioView(){
-    return view('usuarios.agregar-usuario');
+  public function eliminar($id){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users/'.$id);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_close ($ch);
+
+    return redirect('/usuarios');
   }
 
   public function vistaEditarUsuario($id){
@@ -111,7 +118,10 @@ class UsuarioController extends Controller{
         break;
       }
     }
-
     return view('usuarios.editar-usuario', ['usuario' => (object)$target]);
+  }
+
+  public function addUsuarioView(){
+    return view('usuarios.agregar-usuario');
   }
 }
