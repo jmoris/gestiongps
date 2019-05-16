@@ -8,7 +8,7 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                        <form action="/usuarios/agregar-usuario" method="POST">
+                        <form autocomplete="off" action="/usuarios/agregar-usuario" method="POST">
                             @csrf 
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
@@ -17,7 +17,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email">
+                                    <input type="email" class="form-control" name="email" autocomplete="false" id="inputEmail" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Constraseña</label>
@@ -57,5 +57,5 @@
                 $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
                 $( "#datepicker" ).datepicker( "option", "showAnim", "fadeIn" );
                 }); 
-            </script>
+        </script>
 @endsection
