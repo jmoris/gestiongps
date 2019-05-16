@@ -61,4 +61,15 @@ class DispositivosController extends Controller{
         curl_close ($ch);
         return redirect('/dispositivos');
     }
+
+    public function eliminar(Request $request, $id){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_URL, ENV('API_ENDPOINT').'/devices/'.$id);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+
+        curl_close($ch);
+        return redirect('dispositivos');
+    }
 }
