@@ -32,6 +32,8 @@ Route::post('/usuarios/agregar-usuario', 'UsuarioController@agregar');
 
 Route::get('/usuarios/editar-usuario/{id}', 'UsuarioController@vistaEditarUsuario');
 
+Route::get('/usuarios/ver-usuario/{id}', 'UsuarioController@verUsuario');
+
 Route::post('/usuarios/editar-usuario/{id}', 'UsuarioController@modificar');
 
 Route::post('/usuarios/eliminar-usuario/{id}', 'UsuarioController@eliminar');

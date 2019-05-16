@@ -26,7 +26,7 @@
                     <td>{{ $usuario->phone}}</td>
                     <td>{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
                     <td>
-                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">ver</a>
+                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="/usuarios/ver-usuario/{{$usuario->id}}">ver</a>
                         <a class="btn btn-sm btn-outline-secondary" title="modificar" href="/usuarios/editar-usuario/{{$usuario->id}}">modificar</a>
                         <a class="btn btn-sm btn-outline-danger" title="eliminar" href="/usuarios/eliminar-usuario/{{$usuario->id}}">borrar</a>
                     </td>
