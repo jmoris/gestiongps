@@ -46,3 +46,11 @@ Route::post('/logout', 'AuthController@desconectar');
 Route::post('/logout', 'AuthController@desconectar');
 
 Route::get('/usuarios', 'UsuarioController@mostrar');
+
+Route::get('/choferes', 'ChoferesController@mostrar');
+
+Route::get('/choferes/agregar', function(){
+    return view('choferes.agregar');
+});
+
+Route::post('/choferes', 'ChoferesController@agregar');
