@@ -27,7 +27,7 @@ class ChoferesController extends Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
-        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
