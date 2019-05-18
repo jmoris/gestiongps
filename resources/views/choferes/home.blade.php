@@ -29,8 +29,8 @@
                                         <td>
                                             <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="#">
                                                 modificar
-                                            </a>
-                                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="#">
+                                             </a>
+                                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="dispositivos/eliminar/{{$c->id}}">
                                                 borrar
                                             </a>
                                         </td>

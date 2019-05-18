@@ -8,7 +8,7 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                        <form action="/usuarios/modificar/{{$usuario->id}}" method="POST">
+                        <form action="/choferes/modificar/{{$usuario->id}}" method="POST">
                             @csrf 
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
