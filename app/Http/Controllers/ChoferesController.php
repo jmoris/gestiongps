@@ -54,7 +54,7 @@ class ChoferesController extends Controller
         return redirect('/choferes');
     }
 
-    public function eliminar(Request $request, $id){
+    public function eliminar($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers/'.$id);

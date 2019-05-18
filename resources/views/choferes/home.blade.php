@@ -27,10 +27,10 @@
                                         <td>{{ $c->name }}</td>
                                         <td>{{ $c->uniqueId}}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="#">
+                                        <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="choferes/modificar/{{$c->id}}">
                                                 modificar
                                              </a>
-                                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="dispositivos/eliminar/{{$c->id}}">
+                                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="choferes/eliminar/{{$c->id}}">
                                                 borrar
                                             </a>
                                         </td>

@@ -8,23 +8,17 @@
         <div class="card-body">
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
-                        <form action="/choferes/modificar/{{$usuario->id}}" method="POST">
+                        <form action="/choferes/modificar/{{$c->id}}" method="POST">
                             @csrf 
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" value="{{$usuario->name}}" class="form-control" name="nombre" id="nombre" placeholder="Nombre usuario">
+                                    <input type="text" value="{{$c->name}}" class="form-control" name="nombre" id="nombre" placeholder="Ej: Jesus">
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail">Email</label>
-                                <input type="email"  value="{{$usuario->email}}" class="form-control" name="email" id="inputEmail" placeholder="Email">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword">Constraseña</label>
-                                <input type="password" value="{{$usuario->password}}" autocomplete="off" class="form-control" name="pass" id="inputPassword" placeholder="Contraseña">
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail">RUT</label>
+                            <input type="text"  value="{{$c->uniqueId}}" class="form-control" name="rut" id="rut" placeholder="Ej: 12345678-9">
                             </div>
-
                         </form>
                 </div>
         </div>
