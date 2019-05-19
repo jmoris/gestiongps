@@ -33,6 +33,9 @@
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
                             ver
                         </a>
+                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
+                            adm
+                        </a>
                     </td>
                 </tr>
                 @endforeach
