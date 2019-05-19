@@ -16,4 +16,14 @@ class UsuarioController extends Controller{
 
                 return view('usuarios.home', ['usuarios' => json_decode($respuesta)]);
   }
+
+  public function darAdmin()
+  {
+
+  }
+
+  public function quitarAdmin()
+  {
+    
+  }
 }

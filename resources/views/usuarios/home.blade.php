@@ -33,9 +33,16 @@
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
                             ver
                         </a>
+                        @if(($usuario->administrator) == 'SI')
+                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
+                            no adm
+                        </a>
+                        
+                        @else()
                         <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
                             adm
                         </a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
