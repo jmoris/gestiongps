@@ -95,5 +95,51 @@ class UsuarioController extends Controller{
     return redirect('/usuarios');
     //return $respuesta;
   }
+  public function asignarDispositivo(Request $request){
+    $fields = [
+        'userId' => $request->usuario,
+        'deviceId' => $request->dispositivo,
+    ];
+    $fields_string = json_encode($fields);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/permissions');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+    return redirect('/usuarios');
+  }
+  public function vistaAsignarDispositivo($id){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $usuarios = json_decode($respuesta);
+    $target;
+
+    foreach ($usuarios as $usuario){
+        if($usuario->id == $id){
+            $target = $usuario;
+            break;
+        }
+    }
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+      return view('usuarios.asignarDispositivo', ['usuario' => (object)$target, 'dispositivos' => json_decode($respuesta)]);
+  }
 }
 
