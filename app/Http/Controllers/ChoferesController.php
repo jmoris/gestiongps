@@ -37,11 +37,28 @@ class ChoferesController extends Controller
 	}
     
     public function modificar(Request $request, $id){
-        $fields = [
-            'name' => $request->nombre,
-            'uniqueId' => $request->rut,
-        ];
-        $fields_string = http_build_query($fields);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+    
+        $choferes = json_decode($respuesta);
+        $target;
+    
+        foreach ($choferes as $chofer){
+          if($chofer->id == $id){
+            $target = $chofer;
+            break;
+          }
+        }
+    
+        $target->name = $request->nombre;
+        $target->uniqueId = $request->rut;
+    
+        $fields_string = json_encode($target);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers/'.$id);
@@ -51,8 +68,29 @@ class ChoferesController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
-        return view('choferes.modificar', ['c' => json_decode($respuesta)]);
-    }
+        return redirect('/choferes');
+      }
+    
+      public function vistaModificar($id){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+    
+        $choferes = json_decode($respuesta);
+        $target;
+    
+        foreach ($choferes as $chofer){
+          if($chofer->id == $id){
+            $target = $chofer;
+            break;
+          }
+        }
+        return view('choferes.modificar', ['chofer' => (object)$target]);
+      }
 
     public function eliminar($id){
         $ch = curl_init();
@@ -81,6 +119,6 @@ class ChoferesController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
-        return view('choferes.asignarDispositivo', ['c' => json_decode($respuesta)])
+        return view('choferes.asignarDispositivo', ['c' => json_decode($respuesta)]);
     }
 }
