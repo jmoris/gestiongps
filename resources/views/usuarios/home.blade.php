@@ -3,8 +3,9 @@
 @section('titulo', 'Lista de usuarios')
 
 @section('contenido')
+<a type="button" href="/usuarios/agregar-usuario" class="btn btn-primary" style="margin: 0px 10px 10px 0px">Agregar usuario</a>
     <div class="card">
-        <h5 class="card-header">Lista de Usuarios</h5>
+        <h5 class="card-header">Usuarios</h5>
         <div class="card-body">
                 <div class="form-group row mt-3">
                         <div class="col-sm-12">
@@ -57,4 +58,5 @@
             </div>
         </div>
     </div>
+
 @stop

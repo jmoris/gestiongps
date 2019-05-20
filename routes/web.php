@@ -57,3 +57,15 @@ Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuar
 Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
 Route::post('dispositivos/{id}','DispositivosController@modificar');
 Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');
+
+Route::get('/usuarios/agregar-usuario', 'UsuarioController@addUsuarioView');
+
+Route::post('/usuarios/agregar-usuario', 'UsuarioController@agregar');
+
+Route::get('/usuarios/editar-usuario/{id}', 'UsuarioController@vistaEditarUsuario');
+
+Route::get('/usuarios/ver-usuario/{id}', 'UsuarioController@verUsuario');
+
+Route::post('/usuarios/editar-usuario/{id}', 'UsuarioController@modificar');
+
+Route::post('/usuarios/eliminar-usuario/{id}', 'UsuarioController@eliminar');
