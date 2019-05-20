@@ -60,5 +60,5 @@ Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
 
 Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
 
-Route::get('/choferes/asignarDispositivo/{id}', 'ChoferesController@vistaAsignarDispositivo');
-Route::post('/choferes/asignarDispositivo/{id}', 'ChoferesController@asignarDispositivo');
+Route::get('/choferes/asignarGrupo/{id}', 'ChoferesController@vistaAsignarGrupo');
+Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');

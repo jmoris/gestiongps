@@ -104,9 +104,9 @@ class ChoferesController extends Controller
         return redirect('/choferes');
     }
 
-    public function asignarDispositivo(Request $request){
+    public function asignarGrupo(Request $request){
         $fields = [
-            'deviceId' => $request->dispositivo,
+            'groupId' => $request->grupo,
             'driverId' => $request->chofer
         ];
         $fields_string = http_build_query($fields);
@@ -122,7 +122,7 @@ class ChoferesController extends Controller
         return redirect('/choferes');
     }
 
-    public function vistaAsignarDispositivo($id){
+    public function vistaAsignarGrupo($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
         curl_setopt($ch, CURLOPT_POST, FALSE);
@@ -142,13 +142,13 @@ class ChoferesController extends Controller
         }
 
         $ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+		curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups');
 		curl_setopt($ch, CURLOPT_POST, FALSE);
 		curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$respuesta = curl_exec ($ch);
 		curl_close ($ch);
 
-        return view('choferes.asignarDispositivo', ['chofer' => (object)$target, 'dispositivos' => json_decode($respuesta)]);
+        return view('choferes.asignarGrupo', ['chofer' => (object)$target, 'grupos' => json_decode($respuesta)]);
     }
 }

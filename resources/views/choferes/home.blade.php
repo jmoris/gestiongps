@@ -33,8 +33,8 @@
                                             <a  class="btn btn-sm btn-outline-danger" title="Borrar información" href="choferes/eliminar/{{$c->id}}">
                                                 borrar
                                             </a>
-                                            <a  class="btn btn-sm btn-outline-success" title="Borrar información" href="choferes/asignarDispositivo/{{$c->id}}">
-                                                asignar dispositivo
+                                            <a  class="btn btn-sm btn-outline-success" title="Borrar información" href="choferes/asignarGrupo/{{$c->id}}">
+                                                asignar grupo
                                             </a>
                                         </td>
                                     </tr>
