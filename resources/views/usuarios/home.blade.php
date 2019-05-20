@@ -28,7 +28,13 @@
                     <td>
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">ver</a>
                         <a class="btn btn-sm btn-outline-secondary" title="modificar" href="/usuarios/editar-usuario/{{$usuario->id}}">modificar</a>
-                        <a class="btn btn-sm btn-outline-danger" title="eliminar" href="/usuarios/eliminar-usuario/{{$usuario->id}}">borrar</a>
+
+                        <form action="/usuarios/eliminar-usuario/{{$usuario->id}}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-outline-danger"  name="button">borrar</button>
+
+                        </form>
+
                     </td>
                 </tr>
                 @endforeach

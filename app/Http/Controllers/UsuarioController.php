@@ -44,7 +44,7 @@ class UsuarioController extends Controller{
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $respuesta = curl_exec ($ch);
       curl_close ($ch);
-     
+
      // return $respuesta;
     return redirect('/usuarios');
   }
@@ -74,7 +74,7 @@ class UsuarioController extends Controller{
     $target->password = $request->pass;
     $target->email = $request->email;
     $target-> expirationTime = $request->fechaexp;
- 
+
     $fields_string = json_encode($target);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -88,13 +88,14 @@ class UsuarioController extends Controller{
     return redirect('/usuarios');
     //return $respuesta;
   }
-  
+
   public function eliminar($id){
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users/'.$id);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
     curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    $respuesta = curl_exec ($ch);
     curl_close ($ch);
 
     return redirect('/usuarios');

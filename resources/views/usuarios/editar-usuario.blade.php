@@ -9,7 +9,7 @@
                 <div class="espacio-20"></div>
                 <div class="col-md-8 offset-md-2">
                         <form action="/usuarios/editar-usuario/{{$usuario->id}}" method="POST">
-                            @csrf 
+                            @csrf
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" value="{{$usuario->name}}" class="form-control" name="nombre" id="nombre" placeholder="Nombre usuario">
@@ -43,10 +43,10 @@
                                 </label>
                                 </div>
                             </div>
-                            <div class="row mt-3 float-right"> 
-                                <div class="col-sm-12"> 
-                                    <button type="submit" class="btn btn-primary" >Guardar</button> 
-                                </div> 
+                            <div class="row mt-3 float-right">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary" >Guardar</button>
+                                </div>
                             </div>
                         </form>
                 </div>
@@ -56,6 +56,6 @@
                 $( "#datepicker" ).datepicker();
                 $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
                 $( "#datepicker" ).datepicker( "option", "showAnim", "fadeIn" );
-                }); 
+                });
             </script>
 @endsection
