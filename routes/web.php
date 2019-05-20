@@ -46,3 +46,6 @@ Route::post('/logout', 'AuthController@desconectar');
 Route::post('/logout', 'AuthController@desconectar');
 
 Route::get('/usuarios', 'UsuarioController@mostrar');
+
+Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
+Route::post('dispositivos/{id}','DispositivosController@modificar');
