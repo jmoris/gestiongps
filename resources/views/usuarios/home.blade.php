@@ -33,16 +33,24 @@
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
                             ver
                         </a>
+                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#" onclick="event.preventDefault();
+              document.getElementById('user-form{{$usuario->id}}').submit();">
+                           @if($usuario->disabled) hab @else deshab @endif
+</a>
                         @if(($usuario->administrator) == 'SI')
                         <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
                             no adm
                         </a>
-                        
+
                         @else()
                         <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
                             adm
                         </a>
                         @endif
+                        <form id="user-form{{$usuario->id}}" action="/usuarios/{{$usuario->id}}/usuario" method="POST">
+                        @csrf
+                        <input type="hidden" value="@if($usuario->disabled) false @else true @endif" name="deshabilitado">
+                       </form>
                     </td>
                 </tr>
                 @endforeach
