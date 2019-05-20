@@ -106,8 +106,8 @@ class ChoferesController extends Controller
 
     public function asignarDispositivo(Request $request){
         $fields = [
-            'driverId' => $request->chofer,
             'deviceId' => $request->dispositivo,
+            'driverId' => $request->chofer
         ];
         $fields_string = http_build_query($fields);
         $ch = curl_init();
