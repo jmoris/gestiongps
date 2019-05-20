@@ -85,3 +85,6 @@ Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
 
 Route::get('/choferes/asignarGrupo/{id}', 'ChoferesController@vistaAsignarGrupo');
 Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
+
+Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo')->middleware('connected');
+Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo')->middleware('connected');

@@ -33,6 +33,9 @@
                             <a class="btn btn-sm btn-outline-primary" title="Ver información" href="/usuarios/ver-usuario/{{$usuario->id}}">
                                     ver
                                 </a>
+                                <a class="btn btn-sm btn-outline-primary" title="Asignar dispositivo" href="/usuarios/{{$usuario->id}}/asignar">
+                                        asignar 
+                                    </a>
                                 <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#" onclick="event.preventDefault();
                                 document.getElementById('admin-form{{$usuario->id}}').submit();">
                                              @if($usuario->administrator) no adm @else adm @endif
