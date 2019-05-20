@@ -47,8 +47,35 @@
                                 <a href="/usuarios" type="button" class="btn btn-primary" >Salir</a> 
                             </div> 
                         </div>
-                      
                 </div>
         </div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">Dispositivos Asociados a {{$usuario->name}}</h5>
+        <div class="table-responsive">
+            <table id="tablaDatos" class="table table-sm table-hover">
+                <thead class="text-left">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Imei</th>
+                        <th>Estado</th>
+                    </tr>
+                    @foreach($dispositivos as $dis)
+                        <tr>
+                        <td>{{ $dis->name }}</td>
+                        <td>{{ $dis->uniqueId}}</td>
+                        <td>{{ $dis->status}}</td>
+                        </tr>
+                    @endforeach
+
+                </thead>
+            </table>
+        </div>
+        
+    </div>
+
+
+
+        
 
 @endsection

@@ -126,6 +126,7 @@ class UsuarioController extends Controller{
   }
 
   public function verUsuario($id){
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
     curl_setopt($ch, CURLOPT_POST, FALSE);
@@ -144,6 +145,21 @@ class UsuarioController extends Controller{
       }
     }
 
-    return view('usuarios.ver-usuario', ['usuario' => (object)$target]);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?userId='.$id);
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $dispositivos = json_decode($respuesta);
+
+    //return print_r($dispositivos,true);
+
+    return view('usuarios.ver-usuario', ['usuario' => (object)$target , 'dispositivos'=> (object)$dispositivos]);
   }
+
+  
 }
