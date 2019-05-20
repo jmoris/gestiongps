@@ -40,7 +40,7 @@ Route::get('/dispositivos/agregar', function(){
 });
 
 Route::post('/dispositivos', 'DispositivosController@agregar');
-Route::post('/logout', 'AuthController@desconectar');   
+Route::post('/logout', 'AuthController@desconectar');
 
 
 Route::post('/logout', 'AuthController@desconectar');
@@ -50,3 +50,6 @@ Route::get('/usuarios', 'UsuarioController@mostrar');
 Route::post('/usuarios/{id}/admin', 'UsuarioController@editarPrivilegioDeAdmin')
 ->middleware('connected');
 
+
+Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuario')
+->middleware('connected');
