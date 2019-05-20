@@ -27,11 +27,14 @@
                                         <td>{{ $c->name }}</td>
                                         <td>{{ $c->uniqueId}}</td>
                                         <td>
-                                        <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="/choferes/modificar/{{$c->id}}">
+                                            <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="/choferes/modificar/{{$c->id}}">
                                                 modificar
-                                             </a>
+                                            </a>
                                             <a  class="btn btn-sm btn-outline-danger" title="Borrar información" href="choferes/eliminar/{{$c->id}}">
                                                 borrar
+                                            </a>
+                                            <a  class="btn btn-sm btn-outline-success" title="Borrar información" href="choferes/asignarDispositivo/{{$c->id}}">
+                                                asignar dispositivo
                                             </a>
                                         </td>
                                     </tr>

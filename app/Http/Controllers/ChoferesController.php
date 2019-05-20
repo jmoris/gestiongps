@@ -49,10 +49,10 @@ class ChoferesController extends Controller
         $target;
     
         foreach ($choferes as $chofer){
-          if($chofer->id == $id){
-            $target = $chofer;
-            break;
-          }
+            if($chofer->id == $id){
+                $target = $chofer;
+                break;
+            }
         }
     
         $target->name = $request->nombre;
@@ -69,9 +69,9 @@ class ChoferesController extends Controller
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
         return redirect('/choferes');
-      }
+    }  
     
-      public function vistaModificar($id){
+    public function vistaModificar($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
         curl_setopt($ch, CURLOPT_POST, FALSE);
@@ -84,13 +84,13 @@ class ChoferesController extends Controller
         $target;
     
         foreach ($choferes as $chofer){
-          if($chofer->id == $id){
-            $target = $chofer;
-            break;
-          }
+            if($chofer->id == $id){
+                $target = $chofer;
+                break;
+            }
         }
         return view('choferes.modificar', ['chofer' => (object)$target]);
-      }
+    }
 
     public function eliminar($id){
         $ch = curl_init();
@@ -104,21 +104,51 @@ class ChoferesController extends Controller
         return redirect('/choferes');
     }
 
-    public function asignarDispositivo(Request $request, $id){
+    public function asignarDispositivo(Request $request){
         $fields = [
-            'driverId' => $request->Chofer,
-            'deviceId' => $request->Dispositivo,
+            'driverId' => $request->chofer,
+            'deviceId' => $request->dispositivo,
         ];
         $fields_string = http_build_query($fields);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/permissions'.$id);
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/permissions');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'Post');
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
-        return view('choferes.asignarDispositivo', ['c' => json_decode($respuesta)]);
+        return redirect('/choferes');
+    }
+
+    public function vistaAsignarDispositivo($id){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+    
+        $choferes = json_decode($respuesta);
+        $target;
+    
+        foreach ($choferes as $chofer){
+            if($chofer->id == $id){
+                $target = $chofer;
+                break;
+            }
+        }
+
+        $ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+		curl_setopt($ch, CURLOPT_POST, FALSE);
+		curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$respuesta = curl_exec ($ch);
+		curl_close ($ch);
+
+        return view('choferes.asignarDispositivo', ['chofer' => (object)$target, 'dispositivos' => json_decode($respuesta)]);
     }
 }
