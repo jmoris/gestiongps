@@ -55,6 +55,7 @@ Route::get('/choferes/agregar', function(){
 
 Route::post('/choferes', 'ChoferesController@agregar');
 
-Route::post('/chofers/modificar/{id}', 'ChoferesController@modificar');
+Route::get('/choferes/modificar/{id}', 'ChoferesController@modificar');
 
-Route::post('/choferes/eliminar/{uniqueId}', 'ChoferesController@eliminar');
+Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
+Route::get('/choferes/asignarDispositivo/{id}', 'ChoferesController@asignarDispositivo');

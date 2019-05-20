@@ -51,7 +51,7 @@ class ChoferesController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
-        return redirect('/choferes');
+        return view('choferes.modificar', ['c' => json_decode($respuesta)]);
     }
 
     public function eliminar($id){
@@ -64,5 +64,23 @@ class ChoferesController extends Controller
         $respuesta = curl_exec ($ch);
         curl_close ($ch);
         return redirect('/choferes');
+    }
+
+    public function asignarDispositivo(Request $request, $id){
+        $fields = [
+            'driverId' => $request->Chofer,
+            'deviceId' => $request->Dispositivo,
+        ];
+        $fields_string = http_build_query($fields);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/permissions'.$id);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'Post');
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+        return view('choferes.asignarDispositivo', ['c' => json_decode($respuesta)])
     }
 }
