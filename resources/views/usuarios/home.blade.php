@@ -30,19 +30,28 @@
                     <td>{{ $usuario->phone}}</td>
                     <td>{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
                     <td>
+                        @if(($usuario->administrator) == 'SI')
+                        <form action="/usuarios/{{$usuario->id}}/admin" method="POST">
+                        @csrf
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
                             ver
                         </a>
-                        @if(($usuario->administrator) == 'SI')
-                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
-                            no adm
-                        </a>
+                            <input type="hidden" value="false" name="administrador">
+                            <input type="submit" value="no adm" name="editar_privilegio"/>
                         
-                        @else()
-                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
-                            adm
+                        </form>
+                        @else
+                        <form action="/usuarios/{{$usuario->id}}/admin" method="POST">
+                        @csrf
+                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
+                            ver
                         </a>
+                        <input type="hidden" value="true" name="administrador">
+                        <input type="submit" value="adm" name="editar_privilegio"/>
+                    
+                        </form>
                         @endif
+                        
                     </td>
                 </tr>
                 @endforeach
