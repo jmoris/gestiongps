@@ -30,44 +30,25 @@
                     <td>{{ $usuario->phone}}</td>
                     <td>{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
                     <td>
-                        @if(($usuario->administrator) == 'SI')
-                        <form action="/usuarios/{{$usuario->id}}/admin" method="POST">
-                        @csrf
-                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
-                            ver
-                        </a>
-                            <input type="hidden" value="false" name="administrador">
-                            <input type="submit" value="no adm" name="editar_privilegio"/>
-                        
-                        </form>
-                        @else
-                        <form action="/usuarios/{{$usuario->id}}/admin" method="POST">
-                        @csrf
-                        <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
-                            ver
+                            <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
+                                    ver
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#" onclick="event.preventDefault();
+                                document.getElementById('admin-form{{$usuario->id}}').submit();">
+                                             @if($usuario->administrator) no adm @else adm @endif
+                                          </a>
                         <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#" onclick="event.preventDefault();
               document.getElementById('user-form{{$usuario->id}}').submit();">
                            @if($usuario->disabled) hab @else deshab @endif
-</a>
-                        @if(($usuario->administrator) == 'SI')
-                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
-                            no adm
                         </a>
-
-                        @else()
-                        <a class="btn btn-sm btn-outline-primary" title="Asignar administrador" href="#" name="Asignar_Admin">
-                            adm
-                        </a>
-                        <input type="hidden" value="true" name="administrador">
-                        <input type="submit" value="adm" name="editar_privilegio"/>
-                    
-                        </form>
-                        @endif
-                        
                         <form id="user-form{{$usuario->id}}" action="/usuarios/{{$usuario->id}}/usuario" method="POST">
-                        @csrf
-                        <input type="hidden" value="@if($usuario->disabled) false @else true @endif" name="deshabilitado">
+                            @csrf
+                            <input type="hidden" value="@if($usuario->disabled) false @else true @endif" name="deshabilitado">
                        </form>
+                       <form id="admin-form{{$usuario->id}}" action="/usuarios/{{$usuario->id}}/admin" method="POST">
+                        @csrf
+                        <input type="hidden" value="@if($usuario->administrator) false @else true @endif" name="administrador">
+                        </form>
                     </td>
                 </tr>
                 @endforeach
