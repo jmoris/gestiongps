@@ -69,3 +69,19 @@ Route::get('/usuarios/ver-usuario/{id}', 'UsuarioController@verUsuario');
 Route::post('/usuarios/editar-usuario/{id}', 'UsuarioController@modificar');
 
 Route::post('/usuarios/eliminar-usuario/{id}', 'UsuarioController@eliminar');
+
+Route::get('/choferes', 'ChoferesController@mostrar');
+
+Route::get('/choferes/agregar', function(){
+    return view('choferes.agregar');
+});
+
+Route::post('/choferes', 'ChoferesController@agregar');
+
+Route::get('/choferes/modificar/{id}', 'ChoferesController@vistaModificar');
+Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
+
+Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
+
+Route::get('/choferes/asignarGrupo/{id}', 'ChoferesController@vistaAsignarGrupo');
+Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
