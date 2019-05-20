@@ -44,7 +44,7 @@
                         </div>
                         <div class="row mt-3 float-right"> 
                             <div class="col-sm-12"> 
-                                <a href="/usuarios" type="button" class="btn btn-primary" >Salir</a> 
+                                <a href="/usuarios" class="btn btn-primary" >Salir</a> 
                             </div> 
                         </div>
                 </div>
