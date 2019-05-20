@@ -53,3 +53,7 @@ Route::post('/usuarios/{id}/admin', 'UsuarioController@editarPrivilegioDeAdmin')
 
 Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuario')
 ->middleware('connected');
+
+Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
+Route::post('dispositivos/{id}','DispositivosController@modificar');
+Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');

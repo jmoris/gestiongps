@@ -27,27 +27,33 @@
                         @foreach($dis as $d)
                             <tr>
                             <td>{{ $d->name }}</td>
-                            <td>{{ $d->uniqueId}}</td>
+                            <td>
+                                {{ $d->uniqueId}}
+
+                            </td>
                             @if($d->status == 'offline')
-                                <td class="text-danger" >Desconectado</td>
+                                <td class="text-danger">
+                                    <strong>Desconectado</strong></td>
                             @endif
                             @if($d->status == 'online')
-                                <td class="text-success" >Conectado</td>
+                                <td class="text-success" >
+                                    <strong>Conectado</strong></td>
                             @endif
                             @if($d->status == 'unknow')
-                                <td class="text-warning">Desconocido</td>
+                                <td class="text-warning">
+                                    <strong>Desconocido</strong></td>
                             @endif
         
                             <td>
-                            <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#">
-                                ver
+                            <a class="btn btn-sm btn-outline-primary" title="Ver información" href="/dispositivos/ver/{{$d->uniqueId}}"  >
+                                        ver
                             </a>
-                            <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="#">
-                                    modificar
-                                </a>
-                                <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="#">
+                            <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="/dispositivos/editar/{{$d->uniqueId}}" >
+                                        modificar
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="/dispositivos/modificar" >
                                         borrar
-                                    </a>
+                            </a>
                             </td>
                             </tr>
                         @endforeach
