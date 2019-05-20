@@ -49,3 +49,4 @@ Route::get('/usuarios', 'UsuarioController@mostrar');
 
 Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
 Route::post('dispositivos/{id}','DispositivosController@modificar');
+Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');

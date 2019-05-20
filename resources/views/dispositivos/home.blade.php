@@ -45,7 +45,7 @@
                             @endif
         
                             <td>
-                            <a class="btn btn-sm btn-outline-primary" title="Ver información" href="#"  >
+                            <a class="btn btn-sm btn-outline-primary" title="Ver información" href="/dispositivos/ver/{{$d->uniqueId}}"  >
                                         ver
                             </a>
                             <a class="btn btn-sm btn-outline-warning" title="Modificar información" href="/dispositivos/editar/{{$d->uniqueId}}" >

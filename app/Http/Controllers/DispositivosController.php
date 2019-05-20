@@ -41,18 +41,6 @@ class DispositivosController extends Controller{
 	}
 	
 	public function modificar(Request $request, $id){
-        /*
-        $fields = [
-            'name' => $request->nombre,
-            'uniqueId' => $request->imei,
-            'phone' => $request->telefono,
-            'model' => $request->modelo,
-            'contact' => $request->contacto,
-            'category' => $request->cateogria
-        ];
-        */
-
-
         $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
                     curl_setopt($ch, CURLOPT_POST, FALSE);
@@ -106,14 +94,13 @@ class DispositivosController extends Controller{
 
     public function vistaEditarDispositivo($id)
     {
-
         $ch = curl_init();
-                    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
-                    curl_setopt($ch, CURLOPT_POST, FALSE);
-                    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $respuesta = curl_exec ($ch);
-                    curl_close ($ch);
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
 
         $dispositivos = json_decode($respuesta);
         $buscado;
@@ -125,11 +112,31 @@ class DispositivosController extends Controller{
                 break;
             }
         }
-        
-       //return print_r($buscado,true);
+        return view('dispositivos.modificar', ['dispositivo' => (object)$buscado]);
+    }
 
+    public function verDispositivo($id)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
 
-       return view('dispositivos.modificar', ['dispositivo' => (object)$buscado]);
+        $dispositivos = json_decode($respuesta);
+        $buscado;
+
+        foreach ($dispositivos as $dis) {
+            if($dis->uniqueId == $id)
+            {
+                $buscado = $dis;
+                break;
+            }
+        }
+        //return print_r($buscado,true);
+        return view('dispositivos.mostrar', ['dispositivo' => (object)$buscado]);
     }
 
 }
