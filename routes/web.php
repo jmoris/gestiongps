@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return redirect('/login');
 });
 Route::get('/home', function() {
     return view('home');
@@ -27,7 +27,13 @@ Route::post('/servidor', 'ServidorController@guardar')
 
 Route::post('/login', 'AuthController@conectar');
 
-Route::get('/login', function(){ return view('login'); });
+Route::get('/login', function(){ 
+    if(\App\Implementation\UserStore::getInstance()->isConnected()){
+        return redirect('/home');
+    }else{
+        return view('login');
+    }
+});
 
 Route::post('/logout', 'AuthController@desconectar');
 
@@ -57,6 +63,7 @@ Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuar
 Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
 Route::post('dispositivos/{id}','DispositivosController@modificar');
 Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');
+Route::post('dispositivos/eliminar/{id}', 'DispositivosController@eliminar');
 
 Route::get('/usuarios/agregar-usuario', 'UsuarioController@addUsuarioView');
 

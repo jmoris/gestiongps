@@ -8,7 +8,7 @@ class DispositivosController extends Controller{
 
 	public function mostrar(){
 					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+					curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
 					curl_setopt($ch, CURLOPT_POST, FALSE);
 					curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -42,7 +42,7 @@ class DispositivosController extends Controller{
 	
 	public function modificar(Request $request, $id){
         $ch = curl_init();
-                    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+                    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
                     curl_setopt($ch, CURLOPT_POST, FALSE);
                     curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -87,7 +87,7 @@ class DispositivosController extends Controller{
         curl_setopt($ch, CURLOPT_URL, ENV('API_ENDPOINT').'/devices/'.$id);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
-
+        curl_exec($ch);
         curl_close($ch);
         return redirect('dispositivos');
     }
@@ -95,7 +95,7 @@ class DispositivosController extends Controller{
     public function vistaEditarDispositivo($id)
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
         curl_setopt($ch, CURLOPT_POST, FALSE);
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -118,7 +118,7 @@ class DispositivosController extends Controller{
     public function verDispositivo($id)
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
         curl_setopt($ch, CURLOPT_POST, FALSE);
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
