@@ -40,7 +40,7 @@
                         <td class="text-success">
                             <strong>Conectado</strong></td>
                         @endif
-                        @if($d->status == 'unknow')
+                        @if($d->status == 'unknown')
                         <td class="text-warning">
                             <strong>Desconocido</strong></td>
                         @endif
