@@ -12,12 +12,13 @@
                     role="button">Nueva geocerca</a>
             </div>
         </div>
-        <div class="table-responsive col-sm-30">
+        <div class="table-responsive col-sm-10">
             <table id="tablaDatos" class="table table-sm table-hover">
                 <thead class="text-left">
                     <tr>
-                        <th>Nombre</th>
-                        <th>ID</th>
+                        <th width="500">Nombre</th>
+                        <th width="100">ID</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,10 +30,6 @@
                             <a class="btn btn-sm btn-outline-primary" title="Ver información"
                                 href="/geocercas/ver-geocerca/{{$geocerca->id}}">
                                 <i class="far fa-eye"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-warning" title="Modificar información"
-                                href="/geocercas/editar/{{$geocerca->id}}">
-                                <i class="fas fa-edit"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-primary" title="Asignar dispositivo"
                                 href="/geocercas/{{$geocerca->id}}/asignar">
