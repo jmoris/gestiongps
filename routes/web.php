@@ -96,4 +96,6 @@ Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
 Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo')->middleware('connected');
 Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo')->middleware('connected');
 
-Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios');
+Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios')->middleware('connected');
+Route::get('/reportes/dispositivos', 'ReporteController@reporteDispositivos')->middleware('connected');
+Route::get('/reportes', 'ReporteController@mostrar');
