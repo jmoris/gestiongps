@@ -27,7 +27,7 @@ Route::post('/servidor', 'ServidorController@guardar')
 
 Route::post('/login', 'AuthController@conectar');
 
-Route::get('/login', function(){ 
+Route::get('/login', function(){
     if(\App\Implementation\UserStore::getInstance()->isConnected()){
         return redirect('/home');
     }else{
@@ -95,3 +95,5 @@ Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
 
 Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo')->middleware('connected');
 Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo')->middleware('connected');
+
+Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios');
