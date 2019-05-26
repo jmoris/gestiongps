@@ -107,8 +107,10 @@ class ReporteController extends Controller
                   $mpdf->Output();
 
     }
-    public function vistaReportes(){
+
+    public function mostrar(){
       return view('reportes.mostrar');
     }
+    
 
 }
