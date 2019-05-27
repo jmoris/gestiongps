@@ -112,5 +112,89 @@ class ReporteController extends Controller
       return view('reportes.mostrar');
     }
     
+        public function reporteUsuariosPorId($id){
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users?all=true');
+      curl_setopt($ch, CURLOPT_POST, FALSE);
+      curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $respuesta = curl_exec ($ch);
+      curl_close ($ch);
 
+      $usuarios = json_decode($respuesta);
+      $target;
+
+      foreach ($usuarios as $usuario){
+        if($usuario->id == $id){
+          $target = $usuario;
+          break;
+        }
+      }
+
+
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?userId='.$id);
+      curl_setopt($ch, CURLOPT_POST, FALSE);
+      curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $respuesta = curl_exec ($ch);
+      curl_close ($ch);
+
+      $dispositivos = json_decode($respuesta);
+      $var = '
+        <html>
+          <head>
+            </head>
+          <body>
+            <h6 align="right">Fecha: '.date('d/m/Y').'</h6>
+            <h6 align="right">Hora: '.date('h:m:s').'</h6>
+            <div id="logo" style="position:absolute; width:300px; height:100px; top: 10px; left: 15px">
+              <img src="https://soluciontotal.cl/logost.png" height="42" width="200" top: 0px; left: 10px>
+            </div>
+            <h1 align="center">Reporte de usuario '.$target->name.'</h1>
+              <table width="100%" border="0">
+                <tr>
+                  <td>Nombre:</td>
+                  <td>'.$target->name.'</td>
+                  <td>Correo: </td>
+                  <td>'.$target->email.'</td>
+                </tr>
+                <tr>
+                  <td>Telefono:</td>
+                  <td>'.$target->phone.'</td>
+                  <td>Fecha expiracion: </td>
+                  <td>'.$target->expirationTime.'</td>
+                </tr>
+                <tr>
+                  <td>Administrador:</td>
+                  <td>'.(($usuario->administrator)?'Si':'No').'</td>
+                  <td>Habilitado: </td>
+                  <td>'.(($usuario->disabled)?'No':'Si').'</td>
+                </tr>
+              </table>
+              <p></p>
+              <table border="1" align="center" class="css" width="100%">
+                <tr>
+                  <td bgcolor=""><b>ID</b></td>
+                  <td bgcolor=""><b>Nombre</b></td>
+                  <td bgcolor=""><b>IMEI</b></td>
+                  <td bgcolor=""><b>Modelo</b></td>
+                </tr>';
+                
+          foreach($dispositivos as $dispositivo){
+            $var .= '<tr><td>'.$dispositivo->id.'</td>';
+            $var .= '<td>'.$dispositivo->name. '</td>';
+            $var .= '<td>'.$dispositivo->uniqueId. '</td>';
+            $var .= '<td>'.$dispositivo->model. '</td>';
+          }
+    $var.=' </table>
+    </body>
+    </html>
+    ';
+      $mpdf = new \Mpdf\Mpdf();
+
+      $mpdf->WriteHTML($var);
+
+      $mpdf->Output();
+    }
 }
