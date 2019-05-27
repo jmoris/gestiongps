@@ -35,6 +35,14 @@
                                 href="/usuarios/ver-usuario/{{$usuario->id}}">
                                 <i class="far fa-eye"></i>
                             </a>
+                            <a class="btn btn-sm btn-outline-warning" title="Editar información"
+                                href="/usuarios/editar-usuario/{{$usuario->id}}">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="#"
+                                onclick="if(confirm('¿Desea eliminar el usuario?')){event.preventDefault();$('#userd-form{{$usuario->id}}').submit();}">
+                                <i class="fas fa-trash"></i>
+                            </a>
                             <a class="btn btn-sm btn-outline-primary" title="Asignar dispositivo"
                                 href="/usuarios/{{$usuario->id}}/asignar">
                                 <i class="fas fa-location-arrow"></i>
@@ -63,6 +71,9 @@
                                 @csrf
                                 <input type="hidden" value="@if($usuario->administrator) false @else true @endif"
                                     name="administrador">
+                            </form>
+                            <form id="userd-form{{$usuario->id}}" action="/usuarios/eliminar-usuario/{{$usuario->id}}" method="POST">
+                                @csrf
                             </form>
                         </td>
                     </tr>

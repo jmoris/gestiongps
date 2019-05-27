@@ -1,25 +1,26 @@
 @extends('layout.app')
 
-@section('titulo', 'Modificar chofer')
+@section('titulo', 'Nuevo Chofer')
 
 @section('contenido')
 <div class="card">
-    <h5 class="card-header">Editar datos chofer</h5>
+    <h5 class="card-header">Nuevo chofer</h5>
     <div class="card-body">
         <div class="espacio-20"></div>
         <div class="col-md-8 offset-md-2">
             <form action="/choferes/modificar/{{$chofer->id}}" method="POST">
                 @csrf
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" value="{{$chofer->name}}" class="form-control" name="nombre" id="nombre"
-                        placeholder="Ej: Jesus">
+                <div class="form-group row">
+                    <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="{{$chofer->name}}" class="form-control" name="nombre" placeholder="Ej: Juan Perez">
+                    </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="uniqueId">RUT</label>
-                        <input type="text" value="{{$chofer->uniqueId}}" class="form-control" name="rut" id="rut"
-                            placeholder="Ej: 12345678-9">
+
+                <div class="form-group row">
+                    <label for="rut" class="col-sm-4 col-form-label">RUT</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="{{$chofer->uniqueId}}" class="form-control" name="rut" placeholder="Ej: 11222333-4">
                     </div>
                 </div>
         </div>
@@ -32,4 +33,5 @@
     </div>
 </div>
 </form>
+
 @endsection

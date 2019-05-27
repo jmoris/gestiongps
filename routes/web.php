@@ -15,18 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
-Route::get('/home', function() {
-    return view('home');
-})->middleware('connected');
-
-Route::get('/servidor', 'ServidorController@obtener')
-->middleware('connected');
-
-Route::post('/servidor', 'ServidorController@guardar')
-->middleware('connected');
-
 Route::post('/login', 'AuthController@conectar');
-
 Route::get('/login', function(){
     if(\App\Implementation\UserStore::getInstance()->isConnected()){
         return redirect('/home');
@@ -35,76 +24,62 @@ Route::get('/login', function(){
     }
 });
 
-Route::post('/logout', 'AuthController@desconectar');
-
-Route::get('/usuarios', 'UsuarioController@mostrar');
-
-Route::get('/dispositivos' , 'DispositivosController@mostrar');
-
-Route::get('/dispositivos/agregar', function(){
-    return view('dispositivos.agregar');
+Route::middleware(['connected'])->group(function () {
+    /* RUTAS VARIAS */
+    Route::get('/home', function() { return view('home'); });
+    Route::post('/logout', 'AuthController@desconectar');
+    /* RUTAS SERVIDOR */
+    Route::get('/servidor', 'ServidorController@obtener');
+    Route::post('/servidor', 'ServidorController@guardar');
+    /* RUTAS USUARIOS */
+    Route::get('/usuarios', 'UsuarioController@mostrar');
+    Route::post('/usuarios/{id}/admin', 'UsuarioController@editarPrivilegioDeAdmin');
+    Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuario');
+    Route::get('/usuarios/agregar-usuario', 'UsuarioController@addUsuarioView');
+    Route::post('/usuarios/agregar-usuario', 'UsuarioController@agregar');
+    Route::get('/usuarios/editar-usuario/{id}', 'UsuarioController@vistaEditarUsuario');
+    Route::get('/usuarios/ver-usuario/{id}', 'UsuarioController@verUsuario');
+    Route::post('/usuarios/editar-usuario/{id}', 'UsuarioController@modificar');
+    Route::post('/usuarios/eliminar-usuario/{id}', 'UsuarioController@eliminar');
+    Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo');
+    Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo');
+    /* RUTAS DISPOSITIVOS */
+    Route::get('/dispositivos' , 'DispositivosController@mostrar');
+    Route::get('/dispositivos/agregar', 'DispositivosController@vistaAgregar');
+    Route::post('/dispositivos', 'DispositivosController@agregar');
+    Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
+    Route::post('dispositivos/{id}','DispositivosController@modificar');
+    Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');
+    Route::post('dispositivos/eliminar/{id}', 'DispositivosController@eliminar');
+    /* RUTAS CHOFERES */
+    Route::get('/choferes', 'ChoferesController@mostrar');
+    Route::get('/choferes/agregar', 'ChoferesController@vistaAgregar');
+    Route::post('/choferes', 'ChoferesController@agregar');
+    Route::get('/choferes/modificar/{id}', 'ChoferesController@vistaModificar');
+    Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
+    Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
+    Route::get('/choferes/asignarGrupo/{id}', 'ChoferesController@vistaAsignarGrupo');
+    Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
+    /* RUTAS REPORTES */
+    Route::get('/reportes', 'ReporteController@mostrar');
+    Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios');
+    Route::get('/reportes/dispositivos', 'ReporteController@reporteDispositivos');
+    /* RUTAS GEOCERCAS */
+    Route::get('/geocercas', 'GeocercaController@obtener');
+    Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca');
+    Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar');
+    Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar');
 });
 
-Route::post('/dispositivos', 'DispositivosController@agregar');
-Route::post('/logout', 'AuthController@desconectar');
 
 
-Route::post('/logout', 'AuthController@desconectar');
-
-Route::get('/usuarios', 'UsuarioController@mostrar');
-
-Route::post('/usuarios/{id}/admin', 'UsuarioController@editarPrivilegioDeAdmin')
-->middleware('connected');
 
 
-Route::post('/usuarios/{id}/usuario', 'UsuarioController@editarPrivilegioDeUsuario')
-->middleware('connected');
-
-Route::get('/dispositivos/editar/{id}', 'DispositivosController@vistaEditarDispositivo');
-Route::post('dispositivos/{id}','DispositivosController@modificar');
-Route::get('dispositivos/ver/{id}', 'DispositivosController@verDispositivo');
-Route::post('dispositivos/eliminar/{id}', 'DispositivosController@eliminar');
-
-Route::get('/usuarios/agregar-usuario', 'UsuarioController@addUsuarioView');
-
-Route::post('/usuarios/agregar-usuario', 'UsuarioController@agregar');
-
-Route::get('/usuarios/editar-usuario/{id}', 'UsuarioController@vistaEditarUsuario');
-
-Route::get('/usuarios/ver-usuario/{id}', 'UsuarioController@verUsuario');
-
-Route::post('/usuarios/editar-usuario/{id}', 'UsuarioController@modificar');
-
-Route::post('/usuarios/eliminar-usuario/{id}', 'UsuarioController@eliminar');
-
-Route::get('/choferes', 'ChoferesController@mostrar');
-
-Route::get('/choferes/agregar', function(){
-    return view('choferes.agregar');
-});
-
-Route::post('/choferes', 'ChoferesController@agregar');
-
-Route::get('/choferes/modificar/{id}', 'ChoferesController@vistaModificar');
-Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
-
-Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
-
-Route::get('/choferes/asignarGrupo/{id}', 'ChoferesController@vistaAsignarGrupo');
-Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
-
-Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo')->middleware('connected');
-Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo')->middleware('connected');
-
-Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios')->middleware('connected');
-Route::get('/reportes/dispositivos', 'ReporteController@reporteDispositivos')->middleware('connected');
-Route::get('/reportes', 'ReporteController@mostrar');
 
 
-Route::get('/geocercas', 'GeocercaController@obtener')
-->middleware('connected');
 
-Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca')->middleware('connected');
-Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar')->middleware('connected');
 
-Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar')->middleware('connected');
+
+
+
+

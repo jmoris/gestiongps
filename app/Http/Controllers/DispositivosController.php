@@ -18,6 +18,14 @@ class DispositivosController extends Controller{
 					return view('dispositivos.home', ['dis' => json_decode($respuesta)]);
 	}
 
+    /**
+     * Se implementa metodo para mostrar la vista agregar dispositivos.
+     * @author Jesus Moris
+     */
+    public function vistaAgregar(){
+        return view('dispositivos.agregar');
+    }
+
 	public function agregar(Request $request){
         $fields = [
             'name' => $request->nombre,
