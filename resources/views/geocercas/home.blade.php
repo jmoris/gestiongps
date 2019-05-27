@@ -29,13 +29,6 @@
                         <td>{{ $geocerca->name}}</td>
                         <td>{{ $geocerca->description}}</td>
                         <td>
-                            <a class="btn btn-sm btn-outline-primary" title="Ver información"
-                                href="/geocercas/ver-geocerca/{{$geocerca->id}}">
-                                <i class="far fa-eye"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-primary" title="Asignar dispositivo"
-                                href="/geocercas/{{$geocerca->id}}/asignar">
-                                <i class="fas fa-location-arrow"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-primary" title="Asignar usuario"
                                 href="/geocercas/{{$geocerca->id}}/asignar">
