@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class GeocercaController extends Controller
 {
-
+    /**
+     * Metodo para obtener las geocercas almacenadas en la API.
+     * @author Rodrigo Cordero
+     */
     public function obtener()
     {
         $ch = curl_init();
@@ -19,6 +22,10 @@ class GeocercaController extends Controller
         return view('geocercas.home', ['geocercas' => json_decode($respuesta)]);
     }
 
+    /**
+     * Metodo para agregar geocercas y guardarlos en la API.
+     * @author Rodrigo Cordero
+     */
     public function agregar(Request $request){
 
       $this->validate($request,[
@@ -45,6 +52,10 @@ class GeocercaController extends Controller
         return redirect('/geocercas');
       }
 
+      /**
+     * Metodo para poder mostrar la interfaz grafica en el navegador.
+     * @author Rodrigo Cordero
+     */
       public function vistaAgregarGeocerca(){
 
         $ch = curl_init();

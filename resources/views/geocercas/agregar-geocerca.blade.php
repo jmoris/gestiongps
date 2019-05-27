@@ -49,12 +49,20 @@
 </div>
 <script>
         var shapes = [];
+    /*
+      Metodo que obtiene las coordenadas guardadas en la API y se asignan al mapa para que inicie en esa ubicación.
+      @author Rodrigo Cordero
+     */
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: {{$servidor->latitude}}, lng: {{$servidor->longitude}}},
           zoom: {{$servidor->zoom}}
         });
 
+        /**
+        Permite dibujar un circulo o polígono en el mapa
+        @author Rodrigo Cordero
+        */
         var drawingManager = new google.maps.drawing.DrawingManager({
           drawingMode: google.maps.drawing.OverlayType.MARKER,
           drawingControl: true,
@@ -63,6 +71,10 @@
             drawingModes: ['circle', 'polygon']
           }
         });
+        /**
+         Verifica que la figura hecha en el mapa sea una grafica cerrada
+         @author Rodrigo Cordero
+        */
         drawingManager.setMap(map);
     google.maps.event.addListener(drawingManager, "overlaycomplete", function (event) {
         var newShape = event.overlay;

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class ServidorController extends Controller
 {
-
+    /**
+     * Metodo para obtener datos del servidor almacenados en la API.
+     * @author Rodrigo Cordero
+     */
     public function obtener()
     {
         $ch = curl_init();
@@ -19,6 +22,10 @@ class ServidorController extends Controller
         return view('servidor', ['servidor' => json_decode($respuesta)]);
     }
 
+    /**
+     * Metodo para guardar los nuevos datos del servidor en la API.
+     * @author Rodrigo Cordero
+     */
     public function guardar(Request $request){
 
         $fields= [];
