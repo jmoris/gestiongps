@@ -12,20 +12,22 @@
                     role="button">Nueva geocerca</a>
             </div>
         </div>
-        <div class="table-responsive col-sm-10">
+        <div class="table-responsive col-sm-12">
             <table id="tablaDatos" class="table table-sm table-hover">
                 <thead class="text-left">
                     <tr>
-                        <th width="500">Nombre</th>
-                        <th width="100">ID</th>
-                        <th>Acción</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th width="20%">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($geocercas as $geocerca)
                     <tr>
-                        <td>{{ $geocerca->name}}</td>
                         <td>{{ $geocerca->id}}</td>
+                        <td>{{ $geocerca->name}}</td>
+                        <td>{{ $geocerca->description}}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" title="Ver información"
                                 href="/geocercas/ver-geocerca/{{$geocerca->id}}">
