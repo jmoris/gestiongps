@@ -55,6 +55,7 @@ Route::middleware(['connected'])->group(function () {
     Route::get('/choferes', 'ChoferesController@mostrar');
     Route::get('/choferes/agregar', 'ChoferesController@vistaAgregar');
     Route::post('/choferes', 'ChoferesController@agregar');
+    Route::post('/choferes/grupo', 'ChoferesController@agregarGrupo');
     Route::get('/choferes/modificar/{id}', 'ChoferesController@vistaModificar');
     Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
     Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');

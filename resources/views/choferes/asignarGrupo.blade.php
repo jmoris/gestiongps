@@ -21,6 +21,7 @@
                         @endforeach
                     </select>
                 </div>
+                <a href="#" onclick="agregarGrupo()" class="float-right">Agregar grupo</a>
         </div>
     </div>
 </div>
@@ -31,4 +32,17 @@
     </div>
 </div>
 </form>
+<form id="nuevoGrupo" action="/choferes/grupo" method="post">
+    @csrf
+    <input type="hidden" id="nombregrupo" name="nombre" value="">
+</form>
+<script>
+    function agregarGrupo(){
+        var str = prompt('Nombre del grupo');
+        if(str != ''){
+            document.getElementById('nombregrupo').value = str;
+            document.getElementById('nuevoGrupo').submit();
+        }
+    }
+</script>
 @endsection
