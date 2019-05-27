@@ -33,7 +33,8 @@
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger" title="Borrar información"
-                                href="choferes/eliminar/{{$c->id}}">
+                                onclick="if(confirm('¿Desea eliminar el chofer?')){ location.href='/choferes/eliminar/{{$c->id}}'; }"
+                                href="#">
                                 <i class="fas fa-trash"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-success" title="Asignar grupo"

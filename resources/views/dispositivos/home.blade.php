@@ -55,7 +55,7 @@
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger" title="Borrar información" href="#"
-                                onclick="event.preventDefault();$('#device-form{{$d->id}}').submit();">
+                                onclick="if(confirm('¿Desea eliminar el dispositivo?')){event.preventDefault();$('#device-form{{$d->id}}').submit();}">
                                 <i class="fas fa-trash"></i>
                             </a>
                             <form id="device-form{{$d->id}}" action="/dispositivos/eliminar/{{$d->id}}" method="POST">
