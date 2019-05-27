@@ -21,8 +21,8 @@
 </div>
 <div class="row mt-3 ">
     <div class="col-sm-12">
-        <button type="button" class="btn btn-danger" onclick="location.href='/choferes'">Cancelar</button>
-        <button type="button" class="btn btn-primary float-right" onclick="location.href='/reportes/usuarios/' + $('#usuario option:selected').val();">Guardar</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='/reportes'">Cancelar</button>
+        <button type="button" class="btn btn-primary float-right" onclick="location.href='/reportes/usuarios/' + $('#usuario option:selected').val();">Generar</button>
     </div>
 </div>
 </form>
