@@ -20,7 +20,12 @@
         </div>
         <h5 class="texto">Reporte de Usuarios</h5>
       </div>
-
+      <div class="tarjeta" onclick="location.href='/reportes/usuarios/seleccionar'">
+        <div class="icono">
+          <img src="/icon/reportes.png">
+        </div>
+        <h5 class="texto">Reporte de Usuario</h5>
+      </div>
       </div>
     </div>
   </div>

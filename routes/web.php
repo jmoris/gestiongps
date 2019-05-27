@@ -65,7 +65,9 @@ Route::middleware(['connected'])->group(function () {
     Route::get('/reportes', 'ReporteController@mostrar');
     Route::get('/reportes/usuarios', 'ReporteController@reporteUsuarios');
     Route::get('/reportes/dispositivos', 'ReporteController@reporteDispositivos');
+    Route::get('/reportes/usuarios/seleccionar', 'ReporteController@reporteUsuariosSeleccion');
     Route::get('/reportes/usuarios/{id}', 'ReporteController@reporteUsuariosPorId');
+
     /* RUTAS GEOCERCAS */
     Route::get('/geocercas', 'GeocercaController@obtener');
     Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca');

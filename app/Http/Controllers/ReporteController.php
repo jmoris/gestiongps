@@ -197,4 +197,16 @@ class ReporteController extends Controller
 
       $mpdf->Output();
     }
+
+    public function reporteUsuariosSeleccion(){
+      $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+                curl_setopt($ch, CURLOPT_POST, FALSE);
+                curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $respuesta = curl_exec ($ch);
+                curl_close ($ch);
+
+      return view('reportes.seleccionarUsuario', ['usuarios' => json_decode($respuesta)]);
+    }
 }
