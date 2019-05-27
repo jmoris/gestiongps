@@ -95,3 +95,11 @@ Route::post('/choferes/asignarGrupo/{id}', 'ChoferesController@asignarGrupo');
 
 Route::get('/usuarios/{id}/asignar', 'UsuarioController@vistaAsignarDispositivo')->middleware('connected');
 Route::post('/usuarios/{id}/asignar', 'UsuarioController@asignarDispositivo')->middleware('connected');
+
+Route::get('/geocercas', 'GeocercaController@obtener')
+->middleware('connected');
+
+Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca')->middleware('connected');
+Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar')->middleware('connected');
+
+Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar')->middleware('connected');
