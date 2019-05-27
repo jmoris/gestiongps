@@ -67,4 +67,19 @@ class GeocercaController extends Controller
         curl_close ($ch);
         return view('geocercas.agregar-geocerca', ['servidor' => json_decode($respuesta)]);
       }
+
+      /**
+     * Metodo para poder eliminar geocercas de la API.
+     * @author Rodrigo Cordero
+     */
+      public function eliminar($id){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_URL, ENV('API_ENDPOINT').'/geofences/'.$id);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_exec($ch);
+        curl_close($ch);
+        return redirect('geocercas');
+    }
 }

@@ -101,3 +101,5 @@ Route::get('/geocercas', 'GeocercaController@obtener')
 
 Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca')->middleware('connected');
 Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar')->middleware('connected');
+
+Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar')->middleware('connected');

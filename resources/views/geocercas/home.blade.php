@@ -41,9 +41,13 @@
                                 href="/geocercas/{{$geocerca->id}}/asignar">
                                 <i class="fas fa-user"></i>
                             </a>
-                            <a class="btn btn-sm btn-outline-danger" title="Borrar geocerca" href="#">
+                            <a class="btn btn-sm btn-outline-danger" title="Borrar geocerca" href="#"
+                                onclick="event.preventDefault();$('#geofence-form{{$geocerca->id}}').submit();">
                                 <i class="fas fa-trash"></i>
                             </a>
+                            <form id="geofence-form{{$geocerca->id}}" action="/geocercas/eliminar-geocerca/{{$geocerca->id}}" method="POST">
+                                @csrf
+                            </form>
                         </td>
                     </tr>
                     @endforeach
