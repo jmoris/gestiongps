@@ -8,8 +8,10 @@
     <div class="espacio-20"></div>
     <div class="card-body">
         <div class="col-md-8 offset-md-2">
+         <!--La siguiente linea de codigo permite la captura de elementos del teclado y derivarlos a otro archivo -->
             <form autocomplete="off" action="/geocercas/agregar-geocerca" method="post">
                 @csrf
+                <!--Texto puesto en la interfaz junto a un cuadro de captura de texto (captura el nombre de la geocerca) -->
                 <div class="form-group row">
                     <label for="latitud" class="col-sm-4 col-form-label">Nombre:</label>
                     <div class="col-sm-8">
@@ -17,7 +19,7 @@
                             > 
                     </div>
                 </div>
-
+                <!--Texto puesto en la interfaz junto a un cuadro de captura de texto (capturauna descripcion de la geocerca) -->
                 <div class="form-group row">
                     <label for="longitud" class="col-sm-4 col-form-label">Descripción: </label>
                     <div class="col-sm-8">
@@ -28,6 +30,7 @@
                     <label for="longitud" class="col-sm-4 col-form-label">Mapa: </label>
                 </div>
                 <div class="form-group row">
+                <!--Le da la dimension del cuadro en donde aparece el mapa -->
                     <div class="col-sm-12">
                         <div id="map" style="width: 100%; height: 400px"></div>
                     </div>
@@ -40,6 +43,7 @@
 </div>
 <div class="row mt-3 ">
     <div class="col-sm-12">
+        <!--Botones para cancelar o guardar los cambios realizados. -->
         <button type="button" class="btn btn-danger" onclick="location.href='/home'">Cancelar</button>
         <button type="submit" class="btn btn-primary float-right">Guardar</button>
     </div>

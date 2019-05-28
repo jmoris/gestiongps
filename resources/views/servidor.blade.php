@@ -11,6 +11,7 @@
             <form action="/servidor" method="post">
                 @csrf
                 <div class="form-group row">
+                <!--Permite establecer si el servidor estará en modo lectura o no -->
                     <div class="col-sm-4">Servidor en modo lectura</div>
                     <div class="col-sm-8">
                         <div class="form-check">
@@ -22,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--Permite establecer si los dispositivos estará en modo lectura o no -->
                 <div class="form-group row">
                     <div class="col-sm-4">Dispositivos en modo lectura</div>
                     <div class="col-sm-8">
@@ -35,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--Permite establecer si se permite el registro en la pantalla principal o no -->
                 <div class="form-group row">
                     <div class="col-sm-4">Registro en pantalla principal</div>
                     <div class="col-sm-8">

@@ -32,12 +32,12 @@ class ReporteController extends Controller
             <h1 align="center">Reporte de Usuarios</h1>
               <table border="1" align="center" class="css" width="100%">
                 <tr>
-                  <td bgcolor="">N°</td>
-                  <td bgcolor="">Nombre</td>
-                  <td bgcolor="">Correo</td>
-                  <td bgcolor="">Teléfono</td>
-                  <td bgcolor="">Administrador</td>
-                  <td bgcolor="">Habilitado</td>
+                  <td bgcolor=""><b>ID</b></td>
+                  <td bgcolor=""><b>Nombre</b></td>
+                  <td bgcolor=""><b>Correo</b></td>
+                  <td bgcolor=""><b>Teléfono</b></td>
+                  <td bgcolor=""><b>Administrador</b></td>
+                  <td bgcolor=""><b>Habilitado</b></td>
                 </tr>';
 
           foreach($usuarios as $usuario){
@@ -85,7 +85,7 @@ class ReporteController extends Controller
                             <td bgcolor="">ID</td>
                             <td bgcolor="">Nombre</td>
                             <td bgcolor="">IMEI</td>
-                            <td bgcolor="">Moledo</td>
+                            <td bgcolor="">Modelo</td>
                             <td bgcolor="">Categoría</td>
                             </tr>';
 
@@ -154,21 +154,21 @@ class ReporteController extends Controller
             <h1 align="center">Reporte de usuario '.$target->name.'</h1>
               <table width="100%" border="0">
                 <tr>
-                  <td>Nombre:</td>
+                  <td><b>Nombre:</b></td>
                   <td>'.$target->name.'</td>
-                  <td>Correo: </td>
+                  <td><b>Correo: </b></td>
                   <td>'.$target->email.'</td>
                 </tr>
                 <tr>
-                  <td>Telefono:</td>
+                  <td><b>Telefono:</b></td>
                   <td>'.$target->phone.'</td>
-                  <td>Fecha expiracion: </td>
+                  <td><b>Fecha expiracion: </b></td>
                   <td>'.$target->expirationTime.'</td>
                 </tr>
                 <tr>
-                  <td>Administrador:</td>
+                  <td><b>Administrador:</b></td>
                   <td>'.(($usuario->administrator)?'Si':'No').'</td>
-                  <td>Habilitado: </td>
+                  <td><b>Habilitado: </b></td>
                   <td>'.(($usuario->disabled)?'No':'Si').'</td>
                 </tr>
               </table>
