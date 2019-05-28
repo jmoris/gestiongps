@@ -31,7 +31,7 @@
                         <td>
                             </a>
                             <a class="btn btn-sm btn-outline-primary" title="Asignar usuario"
-                                href="/geocercas/{{$geocerca->id}}/asignar">
+                                href="/geocercas/asignar/{{$geocerca->id}}">
                                 <i class="fas fa-user"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger" title="Borrar geocerca" href="#"

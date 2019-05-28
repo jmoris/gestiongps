@@ -62,22 +62,22 @@
                 <div class="form-group row">
                     <label for="categoria" class="col-sm-4 col-form-label">Categoria</label>
                     <div class="col-sm-8">
-                        <select name="categoria" value="{{$dispositivo->category}}">
-                            <option value="arrow">Flecha</option>
-                            <option value="bicycle" selected>Bicicleta</option>
-                            <option value="boat">Bote</option>
-                            <option value="bus">Autobus</option>
-                            <option value="car">Automovil</option>
-                            <option value="crane">Grua</option>
-                            <option value="helicopter">Helicoptero/option>
-                            <option value="motorcycle">Motocicleta</option>
-                            <option value="offroad">Todoterreno</option>
-                            <option value="person">Persona</option>
-                            <option value="pickup">Pickup</option>
-                            <option value="plane">Avion</option>
-                            <option value="ship">Barco</option>
-                            <option value="tractor">Tractor</option>
-                            <option value="truck">Camion</option>
+                        <select name="categoria">
+                            <option value="arrow" @if($dispositivo->category=='arrow') selected @endif>Flecha</option>
+                            <option value="bicycle" @if($dispositivo->category=='bicycle') selected @endif>Bicicleta</option>
+                            <option value="boat" @if($dispositivo->category=='boat') selected @endif>Bote</option>
+                            <option value="bus" @if($dispositivo->category=='bus') selected @endif>Autobus</option>
+                            <option value="car" @if($dispositivo->category=='car') selected @endif>Automovil</option>
+                            <option value="crane" @if($dispositivo->category=='crane') selected @endif>Grua</option>
+                            <option value="helicopter" @if($dispositivo->category=='helicopter') selected @endif>Helicoptero/option>
+                            <option value="motorcycle" @if($dispositivo->category=='motorcycle') selected @endif>Motocicleta</option>
+                            <option value="offroad" @if($dispositivo->category=='offroad') selected @endif>Todoterreno</option>
+                            <option value="person" @if($dispositivo->category=='person') selected @endif>Persona</option>
+                            <option value="pickup" @if($dispositivo->category=='pickup') selected @endif>Pickup</option>
+                            <option value="plane" @if($dispositivo->category=='plane') selected @endif>Avion</option>
+                            <option value="ship" @if($dispositivo->category=='ship') selected @endif>Barco</option>
+                            <option value="tractor" @if($dispositivo->category=='tractor') selected @endif>Tractor</option>
+                            <option value="truck" @if($dispositivo->category=='truck') selected @endif>Camion</option>
                         </select>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
 </div>
 <div class="row mt-3 ">
     <div class="col-sm-12">
-        <button type="submit" class="btn btn-danger" onclick="location.href='/dispositivos'">Cancelar</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='/dispositivos'">Cancelar</button>
         <button type="submit" class="btn btn-primary float-right">Guardar</button>
     </div>
 </div>

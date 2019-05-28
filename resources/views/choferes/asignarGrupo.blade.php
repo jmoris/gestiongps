@@ -15,12 +15,13 @@
                 </div>
                 <div lass="form-group">
                     <label for="chofer" value="{{$chofer->id}}">Nombre del grupo: </label>
-                    <select name="grupo" class="form-control">
+                    <select name="grupo" id="grupo" class="form-control">
                         @foreach ($grupos as $grupo)
                         <option value="{{$grupo->id}}">{{$grupo->name}}</option>
                         @endforeach
                     </select>
                 </div>
+                <a href="#" onclick="eliminarGrupo()" class="text-danger float-left">Borrar grupo</a>
                 <a href="#" onclick="agregarGrupo()" class="float-right">Agregar grupo</a>
         </div>
     </div>
@@ -36,12 +37,24 @@
     @csrf
     <input type="hidden" id="nombregrupo" name="nombre" value="">
 </form>
+<form id="eliminarGrupo" action="" method="post">
+    @csrf
+</form>
 <script>
     function agregarGrupo(){
         var str = prompt('Nombre del grupo');
         if(str != ''){
             document.getElementById('nombregrupo').value = str;
             document.getElementById('nuevoGrupo').submit();
+        }
+    }
+
+    function eliminarGrupo(){
+        var confirmacion = confirm('¿Desea eliminar este grupo?');
+        if(confirmacion){
+            var seleccion = document.getElementById('grupo');
+            document.getElementById('eliminarGrupo').action = '/choferes/grupo/' + seleccion.options.item(seleccion.selectedIndex).value;
+            document.getElementById('eliminarGrupo').submit();
         }
     }
 </script>

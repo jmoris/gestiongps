@@ -56,6 +56,7 @@ Route::middleware(['connected'])->group(function () {
     Route::get('/choferes/agregar', 'ChoferesController@vistaAgregar');
     Route::post('/choferes', 'ChoferesController@agregar');
     Route::post('/choferes/grupo', 'ChoferesController@agregarGrupo');
+    Route::post('/choferes/grupo/{id}', 'ChoferesController@eliminarGrupo');
     Route::get('/choferes/modificar/{id}', 'ChoferesController@vistaModificar');
     Route::post('/choferes/modificar/{id}', 'ChoferesController@modificar');
     Route::get('/choferes/eliminar/{id}', 'ChoferesController@eliminar');
@@ -70,6 +71,8 @@ Route::middleware(['connected'])->group(function () {
 
     /* RUTAS GEOCERCAS */
     Route::get('/geocercas', 'GeocercaController@obtener');
+    Route::get('/geocercas/asignar/{id}', 'GeocercaController@vistaAsignarGeocerca');
+    Route::post('/geocercas/asignar/{id}', 'GeocercaController@asignarGeocerca');
     Route::get('/geocercas/agregar-geocerca', 'GeocercaController@vistaAgregarGeocerca');
     Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar');
     Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar');

@@ -20,7 +20,7 @@
                 <div class="form-group row">
                     <label for="rut" class="col-sm-4 col-form-label">RUT</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="rut" placeholder="Ej: 11222333-4">
+                        <input type="text" class="form-control" name="rut" placeholder="Ej: 11222333-4" required="required" pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido">
                     </div>
                 </div>
         </div>
