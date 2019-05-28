@@ -51,7 +51,8 @@
                 </div>
         </div>
     </div>
-    <div class="row mt-3 float-right">
+</div>
+    <div class="row mt-3">
             <div class="col-sm-12">
                  <!--Botones para cancelar o guardar los cambios realizados. -->
             <button type="button" class="btn btn-danger" onclick="location.href='/usuarios'">Cancelar</button>
@@ -59,6 +60,7 @@
             </div>
         </div>
     </form>
+</div>
     <script>
         $(document).ready( function() {
                 $( "#datepicker" ).datepicker();
