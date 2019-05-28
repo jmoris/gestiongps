@@ -11,7 +11,7 @@
             <form action="/usuarios/editar-usuario/{{$usuario->id}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre" class="float-left">Nombre</label>
                     <input type="text" value="{{$usuario->name}}" class="form-control" name="nombre" id="nombre"
                         placeholder="Nombre usuario">
                 </div>

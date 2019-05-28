@@ -32,7 +32,7 @@
                         <td>{{ $usuario->name }}</td>
                         <td>{{ $usuario->email}}</td>
                         <td>{{ $usuario->phone}}</td>
-                        <td>{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
+                        <td class="text-center">{{ ($usuario->administrator) ? 'SI':'NO' }}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" title="Ver información"
                                 href="/usuarios/ver-usuario/{{$usuario->id}}">

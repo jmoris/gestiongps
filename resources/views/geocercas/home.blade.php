@@ -22,7 +22,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th width="20%">Acción</th>
+                        <th width="15%">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
