@@ -93,7 +93,7 @@
 </div>
 <div class="row mt-3 ">
     <div class="col-sm-12">
-        <button type="submit" class="btn btn-danger" onclick="location.href='/dispositivos'">Cancelar</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='/dispositivos'">Cancelar</button>
         <button type="submit" class="btn btn-primary float-right">Guardar</button>
     </div>
 </div>
