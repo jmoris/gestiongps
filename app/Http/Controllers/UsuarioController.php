@@ -174,8 +174,8 @@ class UsuarioController extends Controller{
     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users/'.$id);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
     curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    $respuesta = curl_exec ($ch);
     curl_close ($ch);
-
     return redirect('/usuarios');
   }
 
