@@ -8,7 +8,7 @@ class ChoferesController extends Controller
 {
     public function mostrar(){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
         curl_setopt($ch, CURLOPT_POST, FALSE);
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -34,7 +34,7 @@ class ChoferesController extends Controller
         $fields_string = json_encode($fields);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
@@ -43,7 +43,10 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect('/choferes');
     }
-    
+    /**
+     * Se implementa metodo para agregar un grupo.
+     * @author Jesus Moris
+     */
     public function agregarGrupo(Request $request){
         $fields = [
             'name' => $request->nombre,
@@ -51,7 +54,7 @@ class ChoferesController extends Controller
         $fields_string = json_encode($fields);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups?all=true');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
@@ -60,10 +63,25 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect()->back();
     }
+    /**
+     * Se implementa metodo para eliminar un grupo.
+     * @author Jesus Moris
+     */
+    public function eliminarGrupo($id){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups/'.$id);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+        return redirect()->back();
+    }
     
     public function modificar(Request $request, $id){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
         curl_setopt($ch, CURLOPT_POST, FALSE);
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -149,7 +167,7 @@ class ChoferesController extends Controller
 
     public function vistaAsignarGrupo($id){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
         curl_setopt($ch, CURLOPT_POST, FALSE);
         curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -167,7 +185,7 @@ class ChoferesController extends Controller
         }
 
         $ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups');
+		curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups?all=true');
 		curl_setopt($ch, CURLOPT_POST, FALSE);
 		curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

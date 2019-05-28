@@ -82,4 +82,53 @@ class GeocercaController extends Controller
         curl_close($ch);
         return redirect('geocercas');
     }
+
+    public function vistaAsignarGeocerca($id){
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/geofences?all=true');
+      curl_setopt($ch, CURLOPT_POST, FALSE);
+      curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $respuesta = curl_exec ($ch);
+      curl_close ($ch);
+  
+      $geocercas = json_decode($respuesta);
+      $target;
+  
+      foreach ($geocercas as $geocerca){
+          if($geocerca->id == $id){
+              $target = $geocerca;
+              break;
+          }
+      }      
+
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users');
+      curl_setopt($ch, CURLOPT_POST, FALSE);
+      curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $respuesta = curl_exec ($ch);
+      curl_close ($ch);
+  
+      $usuarios = json_decode($respuesta);
+      return view('geocercas.asignarUsuario', ['geocerca' => $target, 'usuarios' => $usuarios]);
+    }
+
+    public function asignarGeocerca(Request $request){
+      $fields = [
+          'userId' => $request->usuario,
+          'geofenceId' => $request->geocerca,
+      ];
+      $fields_string = json_encode($fields);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+      curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/permissions');
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $respuesta = curl_exec ($ch);
+      curl_close ($ch);
+      return redirect('/geocercas');
+    }
 }
