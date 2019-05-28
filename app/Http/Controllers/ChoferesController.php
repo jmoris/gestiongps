@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class ChoferesController extends Controller
 {
+    /**
+     * Se implementa metodo para mostrar la vista de choferes
+     * @author René Suazo
+     */
     public function mostrar(){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
@@ -25,7 +29,10 @@ class ChoferesController extends Controller
     public function vistaAgregar(){
         return view('choferes.agregar');
     }
-
+    /**
+     * Se implementa metodo para agregar un chofer
+     * @author René Suazo
+     */
     public function agregar(Request $request){
         $fields = [
             'name' => $request->nombre,
@@ -78,7 +85,10 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect()->back();
     }
-    
+    /**
+     * Se implementa metodo para modificar un chofer
+     * @author René Suazo
+     */
     public function modificar(Request $request, $id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');
@@ -113,7 +123,10 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect('/choferes');
     }  
-    
+    /**
+     * Se implementa metodo para mostrar la vista para modificar un chofer
+     * @author René Suazo
+     */
     public function vistaModificar($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers');
@@ -134,7 +147,10 @@ class ChoferesController extends Controller
         }
         return view('choferes.modificar', ['chofer' => (object)$target]);
     }
-
+    /**
+     * Se implementa metodo para  eliminar un chofer
+     * @author René Suazo
+     */
     public function eliminar($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -146,7 +162,10 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect('/choferes');
     }
-
+    /**
+     * Se implementa metodo para modificar un chofer
+     * @author René Suazo
+     */
     public function asignarGrupo(Request $request){
         $fields = [
             'groupId' => $request->grupo,
@@ -164,7 +183,10 @@ class ChoferesController extends Controller
         curl_close ($ch);
         return redirect('/choferes');
     }
-
+    /**
+     * Se implementa metodo para mostrar la vista de aignar un grupo
+     * @author René Suazo
+     */
     public function vistaAsignarGrupo($id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/drivers?all=true');

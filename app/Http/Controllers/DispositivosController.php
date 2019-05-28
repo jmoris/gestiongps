@@ -25,7 +25,10 @@ class DispositivosController extends Controller{
     public function vistaAgregar(){
         return view('dispositivos.agregar');
     }
-
+    /**
+     * Se implementa metodo para agregar un dispositivo
+     * @author René Suazo
+     */
 	public function agregar(Request $request){
         $fields = [
             'name' => $request->nombre,
@@ -47,7 +50,10 @@ class DispositivosController extends Controller{
         curl_close ($ch);
         return redirect('/dispositivos');
 	}
-	
+	/**
+     * Se implementa metodo para modificar un dispositivo
+     * @author René Suazo
+     */
 	public function modificar(Request $request, $id){
         $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
@@ -88,7 +94,10 @@ class DispositivosController extends Controller{
         curl_close ($ch);
         return redirect('/dispositivos');
     }
-
+    /**
+     * Se implementa metodo para eliminar un dispositivo
+     * @author René Suazo
+     */
     public function eliminar(Request $request, $id){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
