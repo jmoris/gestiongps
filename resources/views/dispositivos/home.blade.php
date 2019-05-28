@@ -20,7 +20,7 @@
                         <th>Nombre</th>
                         <th>IMEI</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        <th width="15%">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
