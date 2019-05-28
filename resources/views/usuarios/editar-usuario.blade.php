@@ -49,14 +49,16 @@
                         </label>
                     </div>
                 </div>
-                <div class="row mt-3 float-right">
-                    <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
+    <div class="row mt-3 float-right">
+            <div class="col-sm-12">
+                 <!--Botones para cancelar o guardar los cambios realizados. -->
+            <button type="button" class="btn btn-danger" onclick="location.href='/usuarios'">Cancelar</button>
+            <button type="submit" class="btn btn-primary float-right">Guardar</button>
+            </div>
+        </div>
+    </form>
     <script>
         $(document).ready( function() {
                 $( "#datepicker" ).datepicker();

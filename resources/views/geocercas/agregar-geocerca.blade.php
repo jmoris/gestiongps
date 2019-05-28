@@ -44,7 +44,7 @@
 <div class="row mt-3 ">
     <div class="col-sm-12">
         <!--Botones para cancelar o guardar los cambios realizados. -->
-        <button type="button" class="btn btn-danger" onclick="location.href='/home'">Cancelar</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='/geocercas'">Cancelar</button>
         <button type="submit" class="btn btn-primary float-right">Guardar</button>
     </div>
 </div>
