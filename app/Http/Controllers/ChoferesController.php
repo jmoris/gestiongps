@@ -191,7 +191,21 @@ class ChoferesController extends Controller
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$respuesta = curl_exec ($ch);
 		curl_close ($ch);
-
-        return view('choferes.asignarGrupo', ['chofer' => (object)$target, 'grupos' => json_decode($respuesta)]);
+        $arr1 = json_decode($respuesta);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/groups?userId='.$target->id);
+        curl_setopt($ch, CURLOPT_POST, FALSE);
+        curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $respuesta = curl_exec ($ch);
+        curl_close ($ch);
+    
+        $arr2 = json_decode($respuesta);
+        $diff = array_udiff($arr1, $arr2,
+            function ($obj_a, $obj_b) {
+            return $obj_a->id - $obj_b->id;
+            }
+        );
+        return view('choferes.asignarGrupo', ['chofer' => (object)$target, 'grupos' => $diff]);
     }
 }
