@@ -111,6 +111,7 @@ class GeocercaController extends Controller
       curl_close ($ch);
   
       $usuarios = json_decode($respuesta);
+      
       return view('geocercas.asignarUsuario', ['geocerca' => $target, 'usuarios' => $usuarios]);
     }
 

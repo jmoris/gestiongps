@@ -110,7 +110,7 @@ class UsuarioController extends Controller{
       'name' => $request->nombre,
       'password' => $request->pass,
       'email' => $request->email,
-      'expirationTime' => $request->fechaexp
+      'expirationTime' => date('Y-m-d', strtotime($request->fechaexp))
       ];
 
       $fields_string = json_encode($fields);
@@ -152,7 +152,7 @@ class UsuarioController extends Controller{
     $target->name = $request->nombre;
     $target->password = $request->pass;
     $target->email = $request->email;
-    $target-> expirationTime = $request->fechaexp;
+    $target->expirationTime = date('Y-m-d', strtotime($request->fechaexp));
  
     $fields_string = json_encode($target);
     $ch = curl_init();
@@ -284,8 +284,23 @@ class UsuarioController extends Controller{
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $respuesta = curl_exec ($ch);
     curl_close ($ch);
+    $arr1 = json_decode($respuesta);
 
-      return view('usuarios.asignarDispositivo', ['usuario' => (object)$target, 'dispositivos' => json_decode($respuesta)]);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?userId='.$target->id);
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $arr2 = json_decode($respuesta);
+    $diff = array_udiff($arr1, $arr2,
+        function ($obj_a, $obj_b) {
+        return $obj_a->id - $obj_b->id;
+        }
+    );
+      return view('usuarios.asignarDispositivo', ['usuario' => (object)$target, 'dispositivos' => $diff]);
   }
 }
 

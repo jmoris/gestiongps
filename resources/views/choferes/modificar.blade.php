@@ -13,14 +13,17 @@
                 <div class="form-group row">
                     <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
                     <div class="col-sm-8">
-                        <input type="text" value="{{$chofer->name}}" class="form-control" name="nombre" placeholder="Ej: Juan Perez">
+                        <input type="text" value="{{$chofer->name}}" class="form-control" name="nombre"
+                            placeholder="Ej: Juan Perez">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="rut" class="col-sm-4 col-form-label">RUT</label>
                     <div class="col-sm-8">
-                        <input type="text" value="{{$chofer->uniqueId}}" class="form-control" name="rut" placeholder="Ej: 11222333-4" required="required" pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido">
+                        <input type="text" value="{{$chofer->uniqueId}}" class="form-control" name="rut"
+                            placeholder="Ej: 11222333-4" required="required" pattern="\d{3,8}-[\d|kK]{1}"
+                            title="Debe ser un Rut válido">
                     </div>
                 </div>
         </div>

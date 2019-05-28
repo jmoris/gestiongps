@@ -5,12 +5,13 @@
 
 @section('contenido')
 <div class="card">
-    <h5 class="card-header">Usuarios</h5>
+    <h5 class="card-header">Lista de Usuarios</h5>
     <div class="card-body">
         <div class="form-group row mt-3">
             <div class="col-sm-12">
                 <a name="" id="" class="btn btn-primary float-right" href="/usuarios/agregar-usuario"
-                    role="button">Nuevo usuario</a><!--se crea un boton para crear usuarios -->
+                    role="button">Nuevo usuario</a>
+                <!--se crea un boton para crear usuarios -->
             </div>
         </div>
         <!-- Se crea una tabla para mostrar en nombre, correo, teléfono, si es administrador o no, y una seccion en donde puede hacer acciones como ver, editar, borrar o agregar dispositivo-->
@@ -74,7 +75,8 @@
                                 <input type="hidden" value="@if($usuario->administrator) false @else true @endif"
                                     name="administrador">
                             </form>
-                            <form id="userd-form{{$usuario->id}}" action="/usuarios/eliminar-usuario/{{$usuario->id}}" method="POST">
+                            <form id="userd-form{{$usuario->id}}" action="/usuarios/eliminar-usuario/{{$usuario->id}}"
+                                method="POST">
                                 @csrf
                             </form>
                         </td>

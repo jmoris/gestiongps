@@ -47,6 +47,8 @@
                             </a>
                             <!--Permite la ejecucion de la funcionalidad del boton Borrar geocerca -->
                             <form id="geofence-form{{$geocerca->id}}" action="/geocercas/eliminar-geocerca/{{$geocerca->id}}" method="POST">
+                            <form id="geofence-form{{$geocerca->id}}"
+                                action="/geocercas/eliminar-geocerca/{{$geocerca->id}}" method="POST">
                                 @csrf
                             </form>
                         </td>

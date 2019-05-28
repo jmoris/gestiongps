@@ -77,6 +77,36 @@ Route::middleware(['connected'])->group(function () {
     Route::post('/geocercas/agregar-geocerca', 'GeocercaController@agregar');
     Route::post('/geocercas/eliminar-geocerca/{id}', 'GeocercaController@eliminar');
     
+    Route::get('prueba', function(){
+
+        $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?all=true');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $arr1 = json_decode($respuesta, true);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/devices?userId=4');
+    curl_setopt($ch, CURLOPT_POST, FALSE);
+    curl_setopt($ch, CURLOPT_USERPWD, \Session::get('email'). ":" . \Session::get('password'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $respuesta = curl_exec ($ch);
+    curl_close ($ch);
+
+    $arr2 = json_decode($respuesta, true);
+
+    $diff = array_udiff($arr1, $arr2,
+        function ($obj_a, $obj_b) {
+        return $obj_a['id'] - $obj_b['id'];
+        }
+    );
+    return print_r($diff, true);
+    });
+
 });
 
 

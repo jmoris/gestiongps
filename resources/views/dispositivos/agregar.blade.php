@@ -38,7 +38,8 @@
                 <div class="form-group row">
                     <label for="telefono" class="col-sm-4 col-form-label">Teléfono</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="telefono" placeholder="Ej: 9 12345678">
+                        <input type="text" class="form-control" name="telefono" pattern="[0-9]"
+                            placeholder="Ej: 9 12345678">
                     </div>
                 </div>
 
@@ -78,16 +79,6 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label for="geocercas" class="col-sm-4 col-form-label">Geocercas</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="geocercas" placeholder="Ej:">
-                    </div>
-                </div>
-
-
-
         </div>
     </div>
 </div>

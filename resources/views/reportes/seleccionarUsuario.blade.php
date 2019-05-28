@@ -8,21 +8,22 @@
     <div class="card-body">
         <div class="espacio-20"></div>
         <div class="col-md-8 offset-md-2">
-                <div lass="form-group">
-                    <label for="usuario">Usuario: </label>
-                    <select id="usuario" name="usuario" class="form-control">
-                        @foreach ($usuarios as $usuario)
-                        <option value="{{$usuario->id}}">{{$usuario->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
+            <div lass="form-group">
+                <label for="usuario">Usuario: </label>
+                <select id="usuario" name="usuario" class="form-control">
+                    @foreach ($usuarios as $usuario)
+                    <option value="{{$usuario->id}}">{{$usuario->name}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
     </div>
 </div>
 <div class="row mt-3 ">
     <div class="col-sm-12">
         <button type="button" class="btn btn-danger" onclick="location.href='/reportes'">Cancelar</button>
-        <button type="button" class="btn btn-primary float-right" onclick="location.href='/reportes/usuarios/' + $('#usuario option:selected').val();">Generar</button>
+        <button type="button" class="btn btn-primary float-right"
+            onclick="location.href='/reportes/usuarios/' + $('#usuario option:selected').val();">Generar</button>
     </div>
 </div>
 </form>

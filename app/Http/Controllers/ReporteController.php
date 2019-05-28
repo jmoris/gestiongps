@@ -164,6 +164,8 @@ class ReporteController extends Controller
                   <td>'.$target->phone.'</td>
                   <td><b>Fecha expiracion: </b></td>
                   <td>'.$target->expirationTime.'</td>
+                  <td>Fecha expiracion: </td>
+                  <td>'.date('d/m/Y', strtotime($target->expirationTime)).'</td>
                 </tr>
                 <tr>
                   <td><b>Administrador:</b></td>

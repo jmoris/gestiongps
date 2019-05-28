@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        <p>Fecha de expiración: <input type="text" value="{{$usuario->expirationTime}}" name="fechaexp"
+                        <p>Fecha de expiración: <input type="text" value="{{date('d-m-Y', strtotime($usuario->expirationTime))}}" name="fechaexp"
                                 id="datepicker"></p>
                     </div>
                 </div>
@@ -58,11 +58,11 @@
         </div>
     </div>
     <script>
-        $( function() {
+        $(document).ready( function() {
                 $( "#datepicker" ).datepicker();
                 $( "#datepicker" ).datepicker( "option", "showAnim", "fadeIn" );
-                $( "#datepicker" ).datepicker( "option", "defaultDate", {{$usuario->expirationTime}} );
-                $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+                $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
+                $("#datepicker").datepicker("setDate", "{{date('d-m-Y', strtotime($usuario->expirationTime))}}");
                 }); 
     </script>
 

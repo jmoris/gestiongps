@@ -13,13 +13,14 @@
                 <div class="form-group row">
                     <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="nombre" value="{{$dispositivo->name}}">
+                        <input type="text" class="form-control" name="nombre" value="{{$dispositivo->name}}"
+                            placeholder="Ej: ABCD-11">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="imei" class="col-sm-4 col-form-label">IMEI</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="imei" placeholder="Ej:"
+                        <input type="text" class="form-control" name="imei" placeholder="Ej: 867060037111000"
                             value="{{$dispositivo->uniqueId}}"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                     </div>
@@ -38,7 +39,7 @@
                 <div class="form-group row">
                     <label for="telefono" class="col-sm-4 col-form-label">Teléfono</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="telefono" placeholder="Ej:"
+                        <input type="text" class="form-control" name="telefono" placeholder="Ej: 9 12345678"
                             value="{{$dispositivo->phone}}">
                     </div>
                 </div>
@@ -46,7 +47,7 @@
                 <div class="form-group row">
                     <label for="modelo" class="col-sm-4 col-form-label">Modelo</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="modelo" placeholder="Ej:"
+                        <input type="text" class="form-control" name="modelo" placeholder="Ej: Teltonika FM3612"
                             value="{{$dispositivo->model}}">
                     </div>
                 </div>
@@ -54,7 +55,7 @@
                 <div class="form-group row">
                     <label for="contacto" class="col-sm-4 col-form-label">Contacto</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="contacto" placeholder="Ej:"
+                        <input type="text" class="form-control" name="contacto" placeholder="Ej: Juan Perez"
                             value="{{$dispositivo->contact}}">
                     </div>
                 </div>
@@ -64,31 +65,29 @@
                     <div class="col-sm-8">
                         <select name="categoria">
                             <option value="arrow" @if($dispositivo->category=='arrow') selected @endif>Flecha</option>
-                            <option value="bicycle" @if($dispositivo->category=='bicycle') selected @endif>Bicicleta</option>
+                            <option value="bicycle" @if($dispositivo->category=='bicycle') selected @endif>Bicicleta
+                            </option>
                             <option value="boat" @if($dispositivo->category=='boat') selected @endif>Bote</option>
                             <option value="bus" @if($dispositivo->category=='bus') selected @endif>Autobus</option>
                             <option value="car" @if($dispositivo->category=='car') selected @endif>Automovil</option>
                             <option value="crane" @if($dispositivo->category=='crane') selected @endif>Grua</option>
-                            <option value="helicopter" @if($dispositivo->category=='helicopter') selected @endif>Helicoptero/option>
-                            <option value="motorcycle" @if($dispositivo->category=='motorcycle') selected @endif>Motocicleta</option>
-                            <option value="offroad" @if($dispositivo->category=='offroad') selected @endif>Todoterreno</option>
-                            <option value="person" @if($dispositivo->category=='person') selected @endif>Persona</option>
+                            <option value="helicopter" @if($dispositivo->category=='helicopter') selected
+                                @endif>Helicoptero/option>
+                            <option value="motorcycle" @if($dispositivo->category=='motorcycle') selected
+                                @endif>Motocicleta</option>
+                            <option value="offroad" @if($dispositivo->category=='offroad') selected @endif>Todoterreno
+                            </option>
+                            <option value="person" @if($dispositivo->category=='person') selected @endif>Persona
+                            </option>
                             <option value="pickup" @if($dispositivo->category=='pickup') selected @endif>Pickup</option>
                             <option value="plane" @if($dispositivo->category=='plane') selected @endif>Avion</option>
                             <option value="ship" @if($dispositivo->category=='ship') selected @endif>Barco</option>
-                            <option value="tractor" @if($dispositivo->category=='tractor') selected @endif>Tractor</option>
+                            <option value="tractor" @if($dispositivo->category=='tractor') selected @endif>Tractor
+                            </option>
                             <option value="truck" @if($dispositivo->category=='truck') selected @endif>Camion</option>
                         </select>
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label for="geocercas" class="col-sm-4 col-form-label">Geocercas</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="geocercas" placeholder="Ej:">
-                    </div>
-                </div>
-
         </div>
     </div>
 </div>

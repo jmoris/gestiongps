@@ -40,7 +40,7 @@
 <body>
   <!--Se asignan los iconos del menú, el logo de Solución total, el color de la barra de menú -->
   <nav class="navbar navbar-expand-sm bg-azul fixed-top navbar-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/home">
       <img src="/logo.png" alt="logo" style="width:200px;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
