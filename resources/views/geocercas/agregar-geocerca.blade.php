@@ -13,15 +13,15 @@
                 <div class="form-group row">
                     <label for="latitud" class="col-sm-4 col-form-label">Nombre:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="nombre" placeholder="Ej: Mi Geocerca"
-                            > 
+                        <input type="text" class="form-control" name="nombre" placeholder="Ej: Mi Geocerca">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="longitud" class="col-sm-4 col-form-label">Descripción: </label>
                     <div class="col-sm-8">
-                        <textarea name="descripcion" rows="5" cols="47" placeholder="Escriba aquí la descripcion de al geocerca."></textarea>
+                        <textarea name="descripcion" class="form-control" rows="5" cols="47"
+                            placeholder="Escriba aquí la descripcion de la geocerca."></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <input type="hidden" name="area" value="" id="area">
-                
+
         </div>
     </div>
     <div class="espacio-20"></div>
@@ -48,7 +48,7 @@
 </form>
 </div>
 <script>
-        var shapes = [];
+    var shapes = [];
     /*
       Metodo que obtiene las coordenadas guardadas en la API y se asignan al mapa para que inicie en esa ubicación.
       @author Rodrigo Cordero
@@ -116,7 +116,8 @@
         }
     });
       }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUzTj3yy-PU9n6PW2XwfPwyhP9CrYXcQ&libraries=drawing&callback=initMap"
-         async defer></script>
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUUzTj3yy-PU9n6PW2XwfPwyhP9CrYXcQ&libraries=drawing&callback=initMap"
+    async defer></script>
 @stop

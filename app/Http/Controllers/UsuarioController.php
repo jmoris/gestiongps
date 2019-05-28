@@ -110,7 +110,7 @@ class UsuarioController extends Controller{
       'name' => $request->nombre,
       'password' => $request->pass,
       'email' => $request->email,
-      'expirationTime' => $request->fechaexp
+      'expirationTime' => date('Y-m-d', strtotime($request->fechaexp))
       ];
 
       $fields_string = json_encode($fields);
@@ -152,7 +152,7 @@ class UsuarioController extends Controller{
     $target->name = $request->nombre;
     $target->password = $request->pass;
     $target->email = $request->email;
-    $target-> expirationTime = $request->fechaexp;
+    $target->expirationTime = date('Y-m-d', strtotime($request->fechaexp));
  
     $fields_string = json_encode($target);
     $ch = curl_init();

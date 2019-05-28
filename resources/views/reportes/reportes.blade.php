@@ -21,7 +21,7 @@
         <h6 class="texto">Reporte de Usuarios</h6>
       </div>
 
-      </div>
     </div>
   </div>
-  @stop
+</div>
+@stop

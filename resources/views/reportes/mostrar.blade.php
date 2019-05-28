@@ -8,6 +8,7 @@
   <h5 class="card-header">Reportes</h5>
   <div class="card-body">
     <div class="text-center">
+
       <div class="tarjeta" onclick="location.href='/reportes/dispositivos'">
         <div class="icono">
           <img src="/icon/reportes.png">
@@ -19,15 +20,15 @@
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h6 class="texto2">Reporte de Usuarios</h6>
+        <h5 class="texto2">Reporte de Usuarios</h6>
       </div>
       <div class="tarjeta" onclick="location.href='/reportes/usuarios/seleccionar'">
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto2">Reporte de Usuario</h5>
-      </div>
+        <h5 class="texto2">Reporte de un Usuario</h5>
       </div>
     </div>
   </div>
-  @stop
+</div>
+@stop

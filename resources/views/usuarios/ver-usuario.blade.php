@@ -28,7 +28,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <p>Fecha de expiración: <input type="text" value="{{$usuario->expirationTime}}" name="fechaexp"
+                    <p>Fecha de expiración: <input type="text" value="{{date('d/m/Y', strtotime($usuario->expirationTime))}}" name="fechaexp"
                             readonly></p>
                 </div>
             </div>

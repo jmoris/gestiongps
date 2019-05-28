@@ -61,9 +61,9 @@
 <script>
     $( function() {
                 $( "#datepicker" ).datepicker();
-                $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+                $( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
                 $( "#datepicker" ).datepicker( "option", "showAnim", "fadeIn" );
-                $("#datepicker").datepicker("setDate", "{{date('Y-m-d', strtotime('+1 month'))}}");
+                $("#datepicker").datepicker("setDate", "{{date('d-m-Y', strtotime('+1 month'))}}");
                 }); 
 </script>
 @endsection

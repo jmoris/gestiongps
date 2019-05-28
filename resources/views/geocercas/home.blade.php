@@ -38,7 +38,8 @@
                                 onclick="if(confirm('¿Desea eliminar la geocerca?')){event.preventDefault();$('#geofence-form{{$geocerca->id}}').submit();}">
                                 <i class="fas fa-trash"></i>
                             </a>
-                            <form id="geofence-form{{$geocerca->id}}" action="/geocercas/eliminar-geocerca/{{$geocerca->id}}" method="POST">
+                            <form id="geofence-form{{$geocerca->id}}"
+                                action="/geocercas/eliminar-geocerca/{{$geocerca->id}}" method="POST">
                                 @csrf
                             </form>
                         </td>
