@@ -1,3 +1,4 @@
+<!--Muestra la pagina de reportes, con los iconos correspondientes a reportes de usuario, reportes de usuarios y reporte de dispositivos-->
 @extends('layout.app')
 
 @section('titulo', 'Pagina reportes')
@@ -11,20 +12,20 @@
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto">Reporte de Dispositivos</h5>
+        <h5 class="texto2">Reporte de Dispositivos</h5>
       </div>
 
       <div class="tarjeta" onclick="location.href='/reportes/usuarios'">
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto">Reporte de Usuarios</h5>
+        <h6 class="texto2">Reporte de Usuarios</h6>
       </div>
       <div class="tarjeta" onclick="location.href='/reportes/usuarios/seleccionar'">
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto">Reporte de Usuario</h5>
+        <h5 class="texto2">Reporte de Usuario</h5>
       </div>
       </div>
     </div>

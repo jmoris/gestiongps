@@ -111,7 +111,7 @@ class ReporteController extends Controller
     public function mostrar(){
       return view('reportes.mostrar');
     }
-    
+
         public function reporteUsuariosPorId($id){
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, env('API_ENDPOINT').'/users?all=true');
@@ -180,7 +180,7 @@ class ReporteController extends Controller
                   <td bgcolor=""><b>IMEI</b></td>
                   <td bgcolor=""><b>Modelo</b></td>
                 </tr>';
-                
+
           foreach($dispositivos as $dispositivo){
             $var .= '<tr><td>'.$dispositivo->id.'</td>';
             $var .= '<td>'.$dispositivo->name. '</td>';

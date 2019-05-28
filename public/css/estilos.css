@@ -39,7 +39,12 @@
   font-weight: bold;
   margin-top: 10%;
 }
-
+.texto2 {
+  font-size: .8em;
+  font-family: "Arial";
+  font-weight: bold;
+  margin-top: 10%;
+}
 
 .espacio-20 {
   width: 100%;

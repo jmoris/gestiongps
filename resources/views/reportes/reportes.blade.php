@@ -11,14 +11,14 @@
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto">Reporte de Dispositivos</h5>
+        <h6 class="texto">Reporte de Dispositivos</h6>
       </div>
 
       <div class="tarjeta" onclick="location.href='/reportes/usuarios'">
         <div class="icono">
           <img src="/icon/reportes.png">
         </div>
-        <h5 class="texto">Reporte de Usuarios</h5>
+        <h6 class="texto">Reporte de Usuarios</h6>
       </div>
 
       </div>

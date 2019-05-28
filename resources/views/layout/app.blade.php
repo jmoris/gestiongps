@@ -1,3 +1,5 @@
+<!--Se crea el menu de navegación superior estático -->
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,12 +32,13 @@
         $('.form-horizontal').show();
         $('modal-title').text('add equisde');
       });
-    </script> 
+    </script>
   -->
 
 </head>
 
 <body>
+  <!--Se asignan los iconos del menú, el logo de Solución total, el color de la barra de menú -->
   <nav class="navbar navbar-expand-sm bg-azul fixed-top navbar-dark">
     <a class="navbar-brand" href="#">
       <img src="/logo.png" alt="logo" style="width:200px;">

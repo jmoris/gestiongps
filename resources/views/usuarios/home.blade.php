@@ -1,3 +1,4 @@
+<!-- Se genera la vista que permite ver el listado de usuarios, permitiendo modificar, habilitar o deshabilitar un usuario, eliminar, ver, etc -->
 @extends('layout.app')
 
 @section('titulo', 'Lista de usuarios')
@@ -9,9 +10,10 @@
         <div class="form-group row mt-3">
             <div class="col-sm-12">
                 <a name="" id="" class="btn btn-primary float-right" href="/usuarios/agregar-usuario"
-                    role="button">Nuevo usuario</a>
+                    role="button">Nuevo usuario</a><!--se crea un boton para crear usuarios -->
             </div>
         </div>
+        <!-- Se crea una tabla para mostrar en nombre, correo, teléfono, si es administrador o no, y una seccion en donde puede hacer acciones como ver, editar, borrar o agregar dispositivo-->
         <div class="table-responsive">
             <table id="tablaDatos" class="table table-sm table-hover">
                 <thead class="text-left">
