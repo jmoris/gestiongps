@@ -1,11 +1,16 @@
+<!-- Se extiende el layout-->
 @extends('layout.app')
-
+<!-- Se asigna el titulo de la seccion-->
 @section('titulo','Choferes')
-
+<!-- Se asigna el contenido de la seccion-->
 @section('contenido')
+<!-- Se agrega un division card-->
 <div class="card">
+    <!-- Se asigna la cabezera del card-->
     <h5 class="card-header">Lista de Choferes</h5>
+    <!-- Se agrega el cuerpo del card-->
     <div class="card-body">
+        <!-- Se agrega la tabla con los choferes-->
         <div class="table-responsive">
             <div class="form-group row mt-3">
                 <div class="col-sm-12">

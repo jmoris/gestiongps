@@ -1,13 +1,18 @@
+<!-- Se extiende el layout -->
 @extends('layout.app')
-
+<!-- Se asigna el titulo de la seccion -->
 @section('titulo', 'Modificar dispositivo')
-
+<!-- Se agrega el contenido de la seccion -->
 @section('contenido')
+<!-- Se agrega una division card -->
 <div class="card">
+    <!-- Se asigna la cabezera del card -->
     <h5 class="card-header">Modificar dispositivo</h5>
+    <!-- Se agrega el cuerpo del card -->
     <div class="card-body">
         <div class="espacio-20"></div>
         <div class="col-md-8 offset-md-2">
+            <!-- Se agrega formulario para modificar un dispositivo -->
             <form method="POST" action="/dispositivos/{{$dispositivo->uniqueId}}">
                 @csrf
                 <div class="form-group row">
@@ -91,6 +96,7 @@
         </div>
     </div>
 </div>
+<!-- Division con botones cancelar y guardar -->
 <div class="row mt-3 ">
     <div class="col-sm-12">
         <button type="button" class="btn btn-danger" onclick="location.href='/dispositivos'">Cancelar</button>

@@ -1,19 +1,24 @@
+<!-- Se extiende el layout -->
 @extends('layout.app')
-
+<!-- Se asigna el titulo de la seccion -->
 @section('titulo', 'Dispositivos')
-
+<!-- Se agrega el contenido de la seccion -->
 @section('contenido')
+<!-- Se agrega una division card -->
 <div class="card">
+    <!-- Se asigna la cabezera del card -->
     <h5 class="card-header">Lista de Dispositivos</h5>
+    <!-- Se agrega el cuerpo del card -->
     <div class="card-body">
         <div class="table-responsive">
-
+            <!-- Division para boton de nuevo dispositivo -->
             <div class="form-group row mt-3">
                 <div class="col-sm-12">
                     <a name="" id="" class="btn btn-primary float-right" href="/dispositivos/agregar"
                         role="button">Nuevo dispositivo</a>
                 </div>
             </div>
+            <!-- Se agrega tabla con los dispositivos -->
             <table id="tablaDatos" class="table table-sm table-hover">
                 <thead class="text-left">
                     <tr>
