@@ -1,10 +1,14 @@
+<!-- Se extiende el layout -->
 @extends('layout.app')
-
+<!-- Se asigna el titulo de la seccion -->
 @section('titulo', 'Ver Dispositivo')
-
+<!-- Se agrega el contenido de la seccion -->
 @section('contenido')
+<!-- Se agrega una division card -->
 <div class="card">
+    <!-- Se asigna la cabezera del card -->
     <h5 class="card-header">Dispositivo</h5>
+    <!-- Se agrega el cuerpo del card -->
     <div class="card-body">
         <div class="espacio-20"></div>
         <div class="col-md-8 offset-md-2">

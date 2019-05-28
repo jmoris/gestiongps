@@ -1,12 +1,18 @@
+<!-- Se extiende el layout -->
 @extends('layout.app')
-
+<!-- Se agrega el titulo de la seccion -->
 @section('titulo', 'Nuevo Chofer')
-
+<!-- Se agrega la seccion del contenido de la vista-->
 @section('contenido')
+<!-- Se agrega una division card-->
 <div class="card">
+    <!-- Se agrega la cabezera del card-->
     <h5 class="card-header">Nuevo chofer</h5>
+    <!-- Se asigna el cuerpo del card-->
     <div class="card-body">
+        <!-- Se agrega un espacio-->
         <div class="espacio-20"></div>
+        <!-- Division de columna-->
         <div class="col-md-8 offset-md-2">
             <form method="POST" action="/choferes">
                 @csrf
@@ -27,6 +33,7 @@
         </div>
     </div>
 </div>
+<!-- Division con botones guardar y cancelar-->
 <div class="row mt-3 ">
     <div class="col-sm-12">
         <button type="button" class="btn btn-danger" onclick="location.href='/choferes'">Cancelar</button>
